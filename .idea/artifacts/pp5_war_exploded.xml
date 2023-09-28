@@ -1,0 +1,43 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="pp5:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/pp5_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="pp5" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.thymeleaf:thymeleaf:3.1.1.RELEASE" />
+          <element id="library" level="project" name="Maven: ognl:ognl:3.3.4" />
+          <element id="library" level="project" name="Maven: org.javassist:javassist:3.29.0-GA" />
+          <element id="library" level="project" name="Maven: org.attoparser:attoparser:2.0.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.unbescape:unbescape:1.1.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.hibernate.orm:hibernate-core:6.0.2.Final" />
+          <element id="library" level="project" name="Maven: jakarta.persistence:jakarta.persistence-api:3.0.0" />
+          <element id="library" level="project" name="Maven: jakarta.transaction:jakarta.transaction-api:2.0.0" />
+          <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.4.3.Final" />
+          <element id="library" level="project" name="Maven: org.hibernate.common:hibernate-commons-annotations:6.0.1.Final" />
+          <element id="library" level="project" name="Maven: org.jboss:jandex:2.4.2.Final" />
+          <element id="library" level="project" name="Maven: com.fasterxml:classmate:1.5.1" />
+          <element id="library" level="project" name="Maven: net.bytebuddy:byte-buddy:1.12.9" />
+          <element id="library" level="project" name="Maven: jakarta.xml.bind:jakarta.xml.bind-api:3.0.1" />
+          <element id="library" level="project" name="Maven: jakarta.inject:jakarta.inject-api:2.0.0" />
+          <element id="library" level="project" name="Maven: org.antlr:antlr4-runtime:4.10" />
+          <element id="library" level="project" name="Maven: org.glassfish.jaxb:jaxb-runtime:3.0.2" />
+          <element id="library" level="project" name="Maven: com.sun.activation:jakarta.activation:2.0.1" />
+          <element id="library" level="project" name="Maven: org.glassfish.jaxb:jaxb-core:3.0.2" />
+          <element id="library" level="project" name="Maven: org.glassfish.jaxb:txw2:3.0.2" />
+          <element id="library" level="project" name="Maven: com.sun.istack:istack-commons-runtime:4.0.1" />
+          <element id="library" level="project" name="Maven: com.mysql:mysql-connector-j:8.0.31" />
+          <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.19.4" />
+          <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-slf4j2-impl:2.20.0" />
+          <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-api:2.20.0" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:2.0.6" />
+          <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-core:2.20.0" />
+          <element id="library" level="project" name="Maven: com.h2database:h2:2.2.220" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="pp5/web/Web" />
+    </root>
+  </artifact>
+</component>
