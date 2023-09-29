@@ -8,25 +8,27 @@
     <title>Login</title>
 </head>
 <body>
-
+<div>
+</div>>
+<div th:replace="~{message}"></div>
 <div class="container">
     <div class="row justify-content-md-center">
         <div class="col col-lg-6">
             <form method="post" >
 
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Email адрес</label>
+                    <label for="exampleInputEmail1" class="form-label">Email address</label>
                     <input name="login" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Пароль</label>
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
                     <input name="password" type="password" class="form-control" id="exampleInputPassword1">
                 </div>
                 <div class="mb-3 form-check">
                 </div>
-                <button type="submit" class="btn btn-primary">Войти</button>
-                <a th:href="@{/registration}" class="btn btn-primary" role="button">Регистрация</a>
+                <button type="submit" class="btn btn-primary">Sign</button>
+                <a th:href="@{/registration}" class="btn btn-primary" role="button">Registration</a>
 
             </form>
         </div>

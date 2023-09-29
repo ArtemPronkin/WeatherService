@@ -1,11 +1,14 @@
 package pet.project.Controller.Servlets.Authorization;
 
+import com.password4j.Password;
+import jakarta.servlet.http.Cookie;
 import lombok.extern.slf4j.Slf4j;
 import pet.project.Controller.Servlets.BaseServlet;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import pet.project.Controller.Validator;
 import pet.project.Entity.Session;
 import pet.project.Entity.SessionDAO;
 import pet.project.Entity.User;
@@ -22,7 +25,7 @@ public class RegistrationServlet extends BaseServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        log.info("get reg");
+        webContext.setVariable("message",request.getParameter("message"));
         templateEngine.process("registration",webContext,response.getWriter());
     }
 
@@ -31,14 +34,26 @@ public class RegistrationServlet extends BaseServlet {
         log.info("post reg");
         String login = request.getParameter("login");
         String password = request.getParameter("password");
-        User user = new User(login,password);
+
+        if (! Validator.isValidLogin(login) || ! Validator.isValidPassword(password)){
+            response.sendRedirect(request.getContextPath()+"/registration?message="+"Not valid" );
+            return;
+        }
+
+
+        var passwordBcrypt = Password.hash(password).withBcrypt().getResult();
+        User user = new User(login,passwordBcrypt);
         try {
             UserDAO.save(user);
         } catch (ExceptionUserAlreadyExists e) {
-            throw new RuntimeException(e);
+            response.sendRedirect(request.getContextPath()+"/registration?message="+"User Already Exists" );
+            return;
         }
         Session session = new Session(UUID.randomUUID(), user, LocalDateTime.now().plusHours(24));
         SessionDAO.save(session);
+        Cookie cookie = new Cookie("sessionId", session.getId().toString());
+        log.info("add Cookie: " + session.getId().toString());
+        response.addCookie(cookie);
         response.sendRedirect(request.getContextPath()+"/home");
     }
 }

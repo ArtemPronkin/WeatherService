@@ -1,18 +1,18 @@
 package pet.project.Controller.Servlets;
 
 import lombok.extern.slf4j.Slf4j;
+import org.thymeleaf.context.WebContext;
 import pet.project.Controller.TemplateEngineUtil;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import org.thymeleaf.ITemplateEngine;
-import org.thymeleaf.context.IWebContext;
 
 import java.io.IOException;
 @Slf4j
 
 public abstract class BaseServlet extends HttpServlet {
     protected static ITemplateEngine templateEngine;
-    protected static IWebContext webContext;
+    protected static WebContext webContext;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -23,7 +23,7 @@ public abstract class BaseServlet extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.printf(req.getServletPath());
+
         webContext = TemplateEngineUtil.buildWebContext(req,resp,getServletContext());
         super.service(req, resp);
     }

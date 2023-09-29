@@ -9,11 +9,46 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ba2399d-e8d8-4360-9b5d-acd977df8f12" name="Changes" comment="commit" />
+    <list default="true" id="1ba2399d-e8d8-4360-9b5d-acd977df8f12" name="Changes" comment="commit">
+      <change afterPath="$PROJECT_DIR$/src/main/java/pet/project/Controller/Servlets/Authorization/LoginFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pet/project/Controller/Validator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pet/project/Controller/main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/templates/message.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/pp5_war_exploded.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/classes/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/classes/log4j2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/classes/pet/project/Controller/Servlets/Authorization/RegistrationServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/classes/pet/project/Controller/Servlets/Authorization/RegistrationServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/classes/pet/project/Controller/Servlets/BaseServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/classes/pet/project/Controller/Servlets/BaseServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/classes/pet/project/Entity/SessionDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/classes/pet/project/Entity/SessionDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/classes/pet/project/SessionFactoryUtil$SingletonHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/classes/pet/project/SessionFactoryUtil$SingletonHolder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/classes/pet/project/SessionFactoryUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/classes/pet/project/SessionFactoryUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project/Controller/Servlets/Authorization/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project/Controller/Servlets/Authorization/LoginServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project/Controller/Servlets/Authorization/OutProfileServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project/Controller/Servlets/Authorization/OutProfileServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project/Controller/Servlets/Authorization/RegistrationServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project/Controller/Servlets/Authorization/RegistrationServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project/Controller/Servlets/BaseServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project/Controller/Servlets/BaseServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project/Controller/Servlets/HomeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project/Controller/Servlets/HomeServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project/Entity/SessionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project/Entity/SessionDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project/Entity/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project/Entity/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/templates/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/templates/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/templates/registration.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -38,10 +73,12 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
     "last_opened_file_path": "C:/Users/ART PRONKIN/Desktop/weather_service-test",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -164,10 +201,24 @@
       <workItem from="1695931627133" duration="127000" />
       <workItem from="1695931761086" duration="119000" />
       <workItem from="1695931981429" duration="256000" />
+      <workItem from="1695932276929" duration="11143000" />
     </task>
+    <task id="LOCAL-00001" summary="commit">
+      <option name="closed" value="true" />
+      <created>1695932328747</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1695932328747</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit" />
   </component>
 </project>
