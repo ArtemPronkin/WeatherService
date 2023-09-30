@@ -7,41 +7,35 @@
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-<div th:replace="~{header}"></div>
-<div class="75 p-3" style="background-color: dimgray;">
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col col-lg-12">
+            <div th:replace="~{header-component}"></div>
+            <div class="75 p-3" style="background-color: dimgray;">
 
 
-    <div class="container">
-        <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
-            <div class="col">
-                <div class="p-3 border bg-light">Row column</div>
-            </div>
-            <div class="col">
-                <div class="p-3 border bg-light">Row column</div>
-            </div>
-            <div class="col">
-                <div class="p-3 border bg-light">Row column</div>
-            </div>
-            <div class="col">
-                <div class="p-3 border bg-light">Row column</div>
-            </div>
-            <div class="col">
-                <div class="p-3 border bg-light">Row column</div>
-            </div>
-            <div class="col">
-                <div class="p-3 border bg-light">Row column</div>
-            </div>
-            <div class="col">
-                <div class="p-3 border bg-light">Row column</div>
-            </div>
-            <div class="col">
-                <div class="p-3 border bg-light">Row column</div>
-            </div>
-            <div class="col">
-                <div class="p-3 border bg-light">Row column</div>
-            </div>
-            <div class="col">
-                <div class="p-3 border bg-light">Row column</div>
+                <div class="container">
+                    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 ">
+                        <div th:each="location : ${locationsList}">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title" th:text="${location.getName().toString()}">Name</h5>
+                                    <p class="card-text" th:text="${location.getCountry()}"></p>
+                                    <p class="card-text" th:text="${location.getState()}"></p>
+                                    <p class="card-text" th:text="${location.getLat()}"></p>
+                                    <p class="card-text" th:text="${location.getLon()}">Z</p>
+
+                                    <form method="post" >
+                                        <input th:name="name" th:value="${location.getName()}" type="hidden">
+                                        <input th:name="latitude" th:value="${location.getLon()}" type="hidden">
+                                        <input th:name="longitude" th:value="${location.getLat()}" type="hidden">
+                                        <button class="btn btn-primary" type="submit">Add</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
