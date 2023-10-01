@@ -11,25 +11,30 @@
     <div class="row justify-content-md-center">
         <div class="col col-lg-12">
             <div th:replace="~{header-component}"></div>
+            <div class="75 p-3" style="background-color: dimgray;">
+                <div class="container">
+                    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 ">
+                        <div th:each="location : ${weatherList}">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title" th:text="${location.getName()}">Name</h5>
+                                    <p class="card-text">Temp : <span th:text="${location.getMain().getTemp()}"></span>
+                                    </p>
+                                    <p class="card-text">Feels like : <span
+                                            th:text="${location.getMain().getFeels_like()}"></span></p>
+                                    <p class="card-text">Wind speed : <span
+                                            th:text="${location.getWind().getSpeed()}"></span>
+                                    </p>
+                                    <p class="card-text">Clouds : <span
+                                            th:text="${location.getClouds().getAll()}"></span></p>
+                                    <p class="card-text">Humidity : <span
+                                            th:text="${location.getMain().getHumidity()}"></span></p>
 
-            <div class="container">
-                <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 ">
-                    <div th:each="location : ${weatherList}">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title" th:text="${location.getName()}">Name</h5>
-                                <p class="card-text">Temp : <span th:text="${location.getMain().getTemp()}"></span></p>
-                                <p class="card-text">Feels like : <span
-                                        th:text="${location.getMain().getFeels_like()}"></span></p>
-                                <p class="card-text">Wind speed : <span th:text="${location.getWind().getSpeed()}"></span>
-                                </p>
-                                <p class="card-text">Clouds : <span th:text="${location.getClouds().getAll()}"></span></p>
-                                <p class="card-text">Humidity : <span th:text="${location.getMain().getHumidity()}"></span></p>
-
-                                <form method="post">
-                                    <input th:name="id" th:value="${location.getId()}" type="hidden">
-                                    <button class="btn btn-primary" type="submit">Delete</button>
-                                </form>
+                                    <form method="post">
+                                        <input th:name="id" th:value="${location.getId()}" type="hidden">
+                                        <button class="btn btn-primary" type="submit">Delete</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>

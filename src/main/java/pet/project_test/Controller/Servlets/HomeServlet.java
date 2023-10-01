@@ -12,6 +12,7 @@ import pet.project_test.Entity.Location.LocationDAO;
 import pet.project_test.Entity.Location.LocationSearchDTO;
 import pet.project_test.Entity.Session.Session;
 import pet.project_test.Entity.Session.SessionDAO;
+import pet.project_test.Entity.User.User;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -20,12 +21,7 @@ import java.util.Optional;
 
 @WebServlet(name = "HomeServlet", value = "/home")
 public class HomeServlet extends BaseServlet {
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        var uuid = LoginFilter.getSessionUUIDFromRequest(request).get();
-        Optional<Session> optionalSession = SessionDAO.getById(uuid);
-        var user = optionalSession.get().getUser();
+    protected void get(HttpServletRequest request, HttpServletResponse response, User user) throws ServletException, IOException {
         webContext.setVariable("login", user.getLogin());
         List<OpenWeatherLocationDTO> weatherList = OpenWeatherApiService.getLocationForUser(user.getLocationList());
         webContext.setVariable("weatherList", weatherList);
@@ -34,14 +30,9 @@ public class HomeServlet extends BaseServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void post(HttpServletRequest request, HttpServletResponse response, User user) throws ServletException, IOException {
         String id = request.getParameter("id");
-        var uuid = LoginFilter.getSessionUUIDFromRequest(request).get();
-        Optional<Session> optionalSession = SessionDAO.getById(uuid);
-        var user = optionalSession.get().getUser();
-
         LocationDAO.deleteForId(Integer.parseInt(id));
         doGet(request,response);
-
     }
 }

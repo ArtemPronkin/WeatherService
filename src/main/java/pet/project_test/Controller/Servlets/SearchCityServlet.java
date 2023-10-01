@@ -11,6 +11,7 @@ import pet.project_test.Entity.Location.LocationDAO;
 import pet.project_test.Entity.Location.LocationSearchDTO;
 import pet.project_test.Entity.Session.Session;
 import pet.project_test.Entity.Session.SessionDAO;
+import pet.project_test.Entity.User.User;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -19,11 +20,8 @@ import java.util.Optional;
 
 @WebServlet(name = "SearchCityServlet", value = "/search")
 public class SearchCityServlet extends BaseServlet {
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        var uuid = LoginFilter.getSessionUUIDFromRequest(request).get();
-        Optional<Session> optionalSession = SessionDAO.getById(uuid);
-        var user = optionalSession.get().getUser();
+
+    protected void get(HttpServletRequest request, HttpServletResponse response, User user) throws ServletException, IOException {
         webContext.setVariable("login", user.getLogin());
 
         String name = request.getParameter("name");
@@ -38,14 +36,11 @@ public class SearchCityServlet extends BaseServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void post(HttpServletRequest request, HttpServletResponse response, User user) throws ServletException, IOException {
 
         String name = request.getParameter("name");
         String latitude = request.getParameter("latitude");
-        String longitude = request.getParameter("longitude");
-        var uuid = LoginFilter.getSessionUUIDFromRequest(request).get();
-        Optional<Session> optionalSession = SessionDAO.getById(uuid);
-        var user = optionalSession.get().getUser();
+        String longitude = request.getParameter("longitude");;
         Location location = new Location(user, name, new BigDecimal(longitude), new BigDecimal(latitude));
         LocationDAO.save(location);
         response.sendRedirect(request.getContextPath() + "/home");

@@ -9,50 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ba2399d-e8d8-4360-9b5d-acd977df8f12" name="Changes" comment="Доделал авторизацию , перевел на английский">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/OpenWeatherService/OpenWeatherApiService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/OpenWeatherService/WeatherEntity/Clouds.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/OpenWeatherService/WeatherEntity/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/OpenWeatherService/WeatherEntity/OpenWeatherLocationDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/OpenWeatherService/WeatherEntity/Wind.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/Location/LocationDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/Location/LocationSearchDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/templates/message-component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/SessionTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/pet/project_test/util/OpenWeatherApiTest.java" afterDir="false" />
+    <list default="true" id="1ba2399d-e8d8-4360-9b5d-acd977df8f12" name="Changes" comment="Доделал функционал">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project/Controller/Listener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/ListenerTemplateEngine/Listener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project/Controller/Servlets/Authorization/LoginFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/Authorization/LoginFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project/Controller/Servlets/Authorization/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/Authorization/LoginServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project/Controller/Servlets/Authorization/OutProfileServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/Authorization/OutProfileServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project/Controller/Servlets/Authorization/RegistrationServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/Authorization/RegistrationServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project/Controller/Servlets/BaseServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/BaseServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project/Controller/Servlets/HomeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/HomeServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project/Controller/Servlets/SearchCityServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/SearchCityServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project/Controller/TemplateEngineUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/ListenerTemplateEngine/TemplateEngineUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project/Controller/Validator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Validator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project/Controller/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project/Entity/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/Location/Location.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project/Entity/LocationDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project/Entity/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/Session/Session.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project/Entity/SessionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/Session/SessionDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project/Entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/User/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project/Entity/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/User/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project/Exception/ExceptionUserAlreadyExists.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Exception/ExceptionUserAlreadyExists.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project/HelloServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project/SessionFactoryUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/SessionFactoryUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/templates/flooter.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/templates/flooter-component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/templates/header-component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/Authorization/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/Authorization/LoginServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/Authorization/OutProfileServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/Authorization/OutProfileServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/BaseServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/BaseServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/HomeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/HomeServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/SearchCityServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/SearchCityServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/templates/message.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/templates/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/templates/registration.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/templates/search.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,31 +52,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/ART PRONKIN/Desktop/weather_service-test",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Global Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.5827586",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ART PRONKIN/Desktop/weather_service-test&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.5827586&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "cde082e0-d4af-46a7-b99f-301c0b002ce5",
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;cde082e0-d4af-46a7-b99f-301c0b002ce5&quot;,
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\ART PRONKIN\Desktop\weather_service-test\src" />
@@ -323,7 +287,8 @@
       <workItem from="1695932276929" duration="11540000" />
       <workItem from="1696000624405" duration="6292000" />
       <workItem from="1696022779136" duration="313000" />
-      <workItem from="1696066656821" duration="23084000" />
+      <workItem from="1696066656821" duration="23212000" />
+      <workItem from="1696157370291" duration="775000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />
@@ -341,7 +306,15 @@
       <option name="project" value="LOCAL" />
       <updated>1695945909072</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Доделал функционал">
+      <option name="closed" value="true" />
+      <created>1696091385594</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1696091385594</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -350,6 +323,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit" />
     <MESSAGE value="Доделал авторизацию , перевел на английский" />
-    <option name="LAST_COMMIT_MESSAGE" value="Доделал авторизацию , перевел на английский" />
+    <MESSAGE value="Доделал функционал" />
+    <option name="LAST_COMMIT_MESSAGE" value="Доделал функционал" />
   </component>
 </project>

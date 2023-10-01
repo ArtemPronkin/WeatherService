@@ -9,6 +9,7 @@ import jakarta.servlet.annotation.*;
 import pet.project_test.Controller.Validator;
 import pet.project_test.Entity.Session.Session;
 import pet.project_test.Entity.Session.SessionDAO;
+import pet.project_test.Entity.User.User;
 import pet.project_test.Entity.User.UserDAO;
 
 import java.io.IOException;
