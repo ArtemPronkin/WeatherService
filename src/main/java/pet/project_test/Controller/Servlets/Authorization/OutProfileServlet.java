@@ -6,8 +6,6 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import pet.project_test.Entity.User.User;
-
 import java.io.IOException;
 @WebServlet(name = "OutProfileServlet", value = "/out")
 public class OutProfileServlet extends BaseServlet {

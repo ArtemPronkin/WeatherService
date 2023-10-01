@@ -1,34 +1,15 @@
 package pet.project_test.Entity.Session;
 
 import lombok.extern.slf4j.Slf4j;
-import org.hibernate.Transaction;
+import pet.project_test.Entity.EntityDAO;
 import pet.project_test.SessionFactoryUtil;
-
 import java.util.Optional;
 import java.util.UUID;
 
 @Slf4j
-public class SessionDAO {
-    public static void save(Session sessionUser) {
-        Transaction transaction = null;
-        org.hibernate.Session session = SessionFactoryUtil.getSessionFactory().getCurrentSession();
-        try {
-            transaction = session.beginTransaction();
-            session.persist(sessionUser);
-            transaction.commit();
-        } catch (RuntimeException e) {
+public class SessionDAO extends EntityDAO<Session> {
 
-            if (transaction != null) {
-                transaction.rollback();
-                log.error("SessionDAO not save session");
-                log.error(e.toString());
-            }
-        } finally {
-            session.close();
-        }
-    }
-
-    public static Optional<Session> getById(UUID id) {
+    public  Optional<Session> getById(UUID id) {
         Optional<Session> optionalSession = Optional.empty();
         org.hibernate.Session session = SessionFactoryUtil.getSessionFactory().getCurrentSession();
         try {

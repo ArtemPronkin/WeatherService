@@ -4,19 +4,32 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import pet.project_test.Controller.OpenWeatherService.OpenWeatherApiService;
 import pet.project_test.Controller.OpenWeatherService.WeatherEntity.OpenWeatherLocationDTO;
 import pet.project_test.Entity.Location.Location;
 import pet.project_test.Entity.Location.LocationDAO;
-import pet.project_test.Entity.Location.LocationSearchDTO;
+import pet.project_test.Controller.OpenWeatherService.WeatherEntity.LocationSearchDTO;
+import pet.project_test.Entity.Session.SessionDAO;
 import pet.project_test.Entity.User.User;
 import pet.project_test.Entity.User.UserDAO;
-import pet.project_test.Exception.ExceptionUserAlreadyExists;
-
+import java.io.IOException;
 import java.math.BigDecimal;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.util.List;
 
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
 public class OpenWeatherApiTest {
+    protected OpenWeatherApiService openWeatherApiService = new OpenWeatherApiService();
+    protected UserDAO userDAO= new UserDAO();
+    protected SessionDAO sessionDAO= new SessionDAO();
+    protected LocationDAO locationDAO = new LocationDAO();
+
     String simpeCity = "[\n" +
             "    {\n" +
             "        \"name\": \"Ryazan\",\n" +
@@ -191,17 +204,17 @@ public class OpenWeatherApiTest {
         Assertions.assertEquals(new BigDecimal("54.6295687"),list.get(0).getLat());
     }
     @Test
-    public void LocationManytoOneTest() throws ExceptionUserAlreadyExists {
+    public void LocationManytoOneTest(){
         String login = "asd@asd";
         User user = new User(login,"asd@asd");
-        UserDAO.save(user);
+        userDAO.save(user);
         var location = new Location(user,"RZN",new BigDecimal("0.2222"),new BigDecimal("0.22222"));
-        LocationDAO.save(location);
-        user = UserDAO.findByLogin(login).get();
+        locationDAO.save(location);
+        user = userDAO.findByLogin(login).get();
         Assertions.assertEquals(location.getLatitide(),location.getLatitide());
         Assertions.assertEquals(location.getLongitide(),location.getLongitide());
         Assertions.assertEquals(location.getName(),location.getName());
-        LocationDAO.deleteForId(location.getId());
+        locationDAO.deleteForId(location.getId());
 
     }
     @Test
@@ -213,5 +226,23 @@ public class OpenWeatherApiTest {
         Assertions.assertEquals("San Francisco",weather.getName());
         Assertions.assertEquals(9.39,weather.getWind().getSpeed());
 
+    }
+
+    private HttpClient createMockHttpClient() throws IOException, InterruptedException {
+        HttpClient httpClient = mock(HttpClient.class);
+
+        URI uri = openWeatherApiService.buildUriForGeocodingRequest("San Francisco");
+        HttpRequest request = OpenWeatherApiService.buildRequest(uri);
+
+        HttpResponse<String> mockResponse = Mockito.mock(HttpResponse.class);
+        when(mockResponse.body()).thenReturn(simpeCity);
+
+        when(httpClient.send(request,HttpResponse.BodyHandlers.ofString())).thenReturn(mockResponse);
+        return httpClient;
+    }
+    @Test
+    public void testLocationFound() {
+        List<LocationSearchDTO> location = openWeatherApiService.geocodingFromName("San+Francisco");
+        Assertions.assertEquals("San Francisco",location.get(0).getName());
     }
 }

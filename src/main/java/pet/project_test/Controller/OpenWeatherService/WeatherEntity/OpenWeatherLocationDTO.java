@@ -1,7 +1,6 @@
 package pet.project_test.Controller.OpenWeatherService.WeatherEntity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data

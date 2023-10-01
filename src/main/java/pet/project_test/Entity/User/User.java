@@ -14,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "users")
+@Table(name = "users",indexes = {@Index(name = "loginIndex", columnList = "login")})
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,16 +25,6 @@ public class User {
     private String password;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private List<Location> locationList = new ArrayList<>();
-
-    public void addLocation(Location location){
-        locationList.add(location);
-        location.setUser(this);
-    }
-    public void removeLocation(Location location){
-        locationList.remove(location);
-        location.setUser(null);
-        LocationDAO.delete(location);
-    }
 
     public User(String login, String password) {
         this.login = login;

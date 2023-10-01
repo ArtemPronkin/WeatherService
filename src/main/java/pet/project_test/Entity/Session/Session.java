@@ -17,7 +17,6 @@ import java.util.UUID;
 @Table(name = "sessions")
 public class Session {
     @Id
-
     private UUID id;
     @ManyToOne (fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")

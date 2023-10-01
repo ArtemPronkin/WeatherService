@@ -1,19 +1,17 @@
 package pet.project_test.Controller.Servlets.Authorization;
 
 import com.password4j.Password;
+import jakarta.persistence.PersistenceException;
 import jakarta.servlet.http.Cookie;
 import lombok.extern.slf4j.Slf4j;
 import pet.project_test.Controller.Servlets.BaseServlet;
-import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import pet.project_test.Controller.Validator;
 import pet.project_test.Entity.Session.Session;
-import pet.project_test.Entity.Session.SessionDAO;
 import pet.project_test.Entity.User.User;
-import pet.project_test.Entity.User.UserDAO;
-import pet.project_test.Exception.ExceptionUserAlreadyExists;
+
 
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -24,13 +22,13 @@ import java.util.UUID;
 public class RegistrationServlet extends BaseServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws  IOException {
         webContext.setVariable("message",request.getParameter("message"));
         templateEngine.process("registration",webContext,response.getWriter());
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws  IOException {
 
         String login = request.getParameter("login");
         String password = request.getParameter("password");
@@ -44,13 +42,13 @@ public class RegistrationServlet extends BaseServlet {
         var passwordBcrypt = Password.hash(password).withBcrypt().getResult();
         User user = new User(login,passwordBcrypt);
         try {
-            UserDAO.save(user);
-        } catch (ExceptionUserAlreadyExists e) {
+            userDAO.save(user);
+        } catch (PersistenceException e) {
             response.sendRedirect(request.getContextPath()+"/registration?message="+"User Already Exists" );
             return;
         }
         Session session = new Session(UUID.randomUUID(), user, LocalDateTime.now().plusHours(24));
-        SessionDAO.save(session);
+        sessionDAO.save(session);
         Cookie cookie = new Cookie("sessionId", session.getId().toString());
         log.info("add Cookie: " + session.getId().toString());
         response.addCookie(cookie);

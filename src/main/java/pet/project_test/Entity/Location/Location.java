@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.ws.rs.ext.ParamConverter;
 import lombok.*;
+import org.hibernate.annotations.Type;
 import pet.project_test.Entity.User.User;
 
 import java.math.BigDecimal;

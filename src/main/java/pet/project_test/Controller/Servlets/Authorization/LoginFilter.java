@@ -19,6 +19,8 @@ import java.util.UUID;
 public class LoginFilter implements Filter {
     private List excludedUrls;
 
+    SessionDAO sessionDAO = new SessionDAO();
+
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         String excludePattern = filterConfig.getInitParameter("excludedUrls");
@@ -72,7 +74,7 @@ public class LoginFilter implements Filter {
             return false;
         }
 
-        Optional<Session> optionalSession = SessionDAO.getById(optionalIdSessionFromCookie.get());
+        Optional<Session> optionalSession = sessionDAO.getById(optionalIdSessionFromCookie.get());
         if(optionalSession.isEmpty()){
             return false;
         }

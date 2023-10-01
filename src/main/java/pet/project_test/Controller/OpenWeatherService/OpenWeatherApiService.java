@@ -4,9 +4,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import pet.project_test.Controller.OpenWeatherService.WeatherEntity.OpenWeatherLocationDTO;
-import pet.project_test.Controller.Servlets.BaseServlet;
 import pet.project_test.Entity.Location.Location;
-import pet.project_test.Entity.Location.LocationSearchDTO;
+import pet.project_test.Controller.OpenWeatherService.WeatherEntity.LocationSearchDTO;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -22,52 +21,45 @@ public class OpenWeatherApiService {
     private static final String APP_ID = "4c31277b10243af9ff3161584e3a4a5c";
     private static final String WEATHER_API_URL = "https://api.openweathermap.org" + "/data/2.5/weather";
     private static final String GEOCODING_API_URL = "https://api.openweathermap.org" + "/geo/1.0/direct";
-
-    private static final HttpClient client = HttpClient.newHttpClient();
+    private static final HttpClient httpClient = HttpClient.newHttpClient();
     public static ObjectMapper objectMapper = new ObjectMapper();
 
-    private static HttpRequest buildRequest(URI uri) {
+    public static HttpRequest buildRequest(URI uri) {
         return HttpRequest.newBuilder(uri)
                 .GET()
                 .build();
     }
 
-    public static OpenWeatherLocationDTO weatherForLocation(Location location) {
+    private OpenWeatherLocationDTO weatherForLocation(Location location) {
         var uri = buildUriForWeatherForLocationRequest(location.getLatitide(), location.getLongitide());
         log.info(uri.toString());
         HttpRequest httpRequest = buildRequest(uri);
         try {
-            HttpResponse<String> httpResponse = client.send(httpRequest, HttpResponse.BodyHandlers.ofString());
-
-            return objectMapper.readValue(httpResponse.body(), new TypeReference<OpenWeatherLocationDTO>() {});
-        } catch (IOException e) {
-            log.warn(e.getMessage());
-            throw new RuntimeException(e);
-        } catch (InterruptedException e) {
+            HttpResponse<String> httpResponse = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+            return objectMapper.readValue(httpResponse.body(), new TypeReference<OpenWeatherLocationDTO>() {
+            });
+        } catch (IOException | InterruptedException e) {
             log.warn(e.getMessage());
             throw new RuntimeException(e);
         }
     }
 
-    public static List<LocationSearchDTO> geocodingFromName(String name) {
+    public  List<LocationSearchDTO> geocodingFromName(String name) {
         var uri = (buildUriForGeocodingRequest(name));
         log.info(uri.toString());
         HttpRequest httpRequest = buildRequest(uri);
         try {
-            HttpResponse<String> httpResponse = client.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+            HttpResponse<String> httpResponse = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
             return objectMapper.readValue(httpResponse.body(), new TypeReference<List<LocationSearchDTO>>() {
             });
-        } catch (IOException e) {
-            log.warn(e.getMessage());
-            throw new RuntimeException(e);
-        } catch (InterruptedException e) {
+        } catch (IOException | InterruptedException e) {
             log.warn(e.getMessage());
             throw new RuntimeException(e);
         }
 
     }
 
-    private static URI buildUriForGeocodingRequest(String nameOfLocation) {
+    public URI buildUriForGeocodingRequest(String nameOfLocation) {
         // Somehow without explicit limit api returns only 1 object
         return URI.create(GEOCODING_API_URL
                 + "?q=" + nameOfLocation
@@ -75,7 +67,7 @@ public class OpenWeatherApiService {
                 + "&appid=" + APP_ID);
     }
 
-    private static URI buildUriForWeatherForLocationRequest(BigDecimal lat, BigDecimal lon) {
+    public  URI buildUriForWeatherForLocationRequest(BigDecimal lat, BigDecimal lon) {
         // Somehow without explicit limit api returns only 1 object
         return URI.create(WEATHER_API_URL
                 + "?lat=" + lat.toString()
@@ -84,7 +76,7 @@ public class OpenWeatherApiService {
                 + "&appid=" + APP_ID);
     }
 
-    public static List<OpenWeatherLocationDTO> getLocationForUser(List<Location> list) {
+    public  List<OpenWeatherLocationDTO> getLocationForUser(List<Location> list) {
         List<OpenWeatherLocationDTO> result = new ArrayList<>();
         for (Location loc :
                 list) {

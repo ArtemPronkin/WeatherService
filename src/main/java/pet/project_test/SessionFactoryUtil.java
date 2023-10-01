@@ -10,7 +10,7 @@ public class SessionFactoryUtil {
     private org.hibernate.SessionFactory sessionFactory;
 
     private SessionFactoryUtil() {
-        Configuration configuration = new Configuration().configure("hibernateH2.cfg.xml");
+        Configuration configuration = new Configuration().configure();
         configuration.addAnnotatedClass(User.class);
         configuration.addAnnotatedClass(Session.class);
         configuration.addAnnotatedClass(Location.class);
