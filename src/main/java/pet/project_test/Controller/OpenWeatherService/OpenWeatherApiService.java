@@ -2,6 +2,8 @@ package pet.project_test.Controller.OpenWeatherService;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import pet.project_test.Controller.OpenWeatherService.WeatherEntity.OpenWeatherLocationDTO;
 import pet.project_test.Entity.Location.Location;
@@ -15,14 +17,19 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.List;
-
+@Data
+@NoArgsConstructor
 @Slf4j
 public class OpenWeatherApiService {
     private static final String APP_ID = "4c31277b10243af9ff3161584e3a4a5c";
     private static final String WEATHER_API_URL = "https://api.openweathermap.org" + "/data/2.5/weather";
     private static final String GEOCODING_API_URL = "https://api.openweathermap.org" + "/geo/1.0/direct";
-    private static final HttpClient httpClient = HttpClient.newHttpClient();
-    public static ObjectMapper objectMapper = new ObjectMapper();
+    private  HttpClient httpClient = HttpClient.newHttpClient();
+    private final  ObjectMapper objectMapper = new ObjectMapper();
+
+    public OpenWeatherApiService(HttpClient mockHttpClient) {
+        httpClient=mockHttpClient;
+    }
 
     public static HttpRequest buildRequest(URI uri) {
         return HttpRequest.newBuilder(uri)
@@ -30,7 +37,7 @@ public class OpenWeatherApiService {
                 .build();
     }
 
-    private OpenWeatherLocationDTO weatherForLocation(Location location) {
+    public OpenWeatherLocationDTO weatherForLocation(Location location) {
         var uri = buildUriForWeatherForLocationRequest(location.getLatitide(), location.getLongitide());
         log.info(uri.toString());
         HttpRequest httpRequest = buildRequest(uri);
@@ -44,7 +51,7 @@ public class OpenWeatherApiService {
         }
     }
 
-    public  List<LocationSearchDTO> geocodingFromName(String name) {
+    public  List<LocationSearchDTO> geocodingByName(String name) {
         var uri = (buildUriForGeocodingRequest(name));
         log.info(uri.toString());
         HttpRequest httpRequest = buildRequest(uri);
@@ -76,7 +83,7 @@ public class OpenWeatherApiService {
                 + "&appid=" + APP_ID);
     }
 
-    public  List<OpenWeatherLocationDTO> getLocationForUser(List<Location> list) {
+    public  List<OpenWeatherLocationDTO> getListWeatherByListLocation(List<Location> list) {
         List<OpenWeatherLocationDTO> result = new ArrayList<>();
         for (Location loc :
                 list) {

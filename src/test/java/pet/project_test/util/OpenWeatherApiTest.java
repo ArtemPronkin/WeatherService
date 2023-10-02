@@ -1,12 +1,10 @@
 package pet.project_test.util;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 import org.mockito.Mockito;
 import pet.project_test.Controller.OpenWeatherService.OpenWeatherApiService;
-import pet.project_test.Controller.OpenWeatherService.WeatherEntity.OpenWeatherLocationDTO;
 import pet.project_test.Entity.Location.Location;
 import pet.project_test.Entity.Location.LocationDAO;
 import pet.project_test.Controller.OpenWeatherService.WeatherEntity.LocationSearchDTO;
@@ -19,16 +17,19 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.Collections;
 import java.util.List;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class OpenWeatherApiTest {
     protected OpenWeatherApiService openWeatherApiService = new OpenWeatherApiService();
     protected UserDAO userDAO= new UserDAO();
     protected SessionDAO sessionDAO= new SessionDAO();
     protected LocationDAO locationDAO = new LocationDAO();
+
+
 
     String simpeCity = "[\n" +
             "    {\n" +
@@ -193,16 +194,7 @@ public class OpenWeatherApiTest {
             "    \"name\": \"San Francisco\",\n" +
             "    \"cod\": 200\n" +
             "}";
-    @Test
-    public  void LocationDTOFromJSONTest() throws JsonProcessingException {
-        var list = OpenWeatherApiService.objectMapper.readValue(
-                simpeCity,
-                new TypeReference<List<LocationSearchDTO>>() {}
-        );
-        Assertions.assertEquals("Ryazan",list.get(0).getName());
-        Assertions.assertEquals("RU",list.get(0).getCountry());
-        Assertions.assertEquals(new BigDecimal("54.6295687"),list.get(0).getLat());
-    }
+
     @Test
     public void LocationManytoOneTest(){
         String login = "asd@asd";
@@ -217,21 +209,11 @@ public class OpenWeatherApiTest {
         locationDAO.deleteForId(location.getId());
 
     }
-    @Test
-    public  void WeatherLocationDTOFromJSONTest() throws JsonProcessingException {
-        var weather = OpenWeatherApiService.objectMapper.readValue(
-                simpleWeather,
-                new TypeReference<OpenWeatherLocationDTO>() {}
-        );
-        Assertions.assertEquals("San Francisco",weather.getName());
-        Assertions.assertEquals(9.39,weather.getWind().getSpeed());
 
-    }
-
-    private HttpClient createMockHttpClient() throws IOException, InterruptedException {
+    private HttpClient createMockHttpClientforFoundCity() throws IOException, InterruptedException {
         HttpClient httpClient = mock(HttpClient.class);
 
-        URI uri = openWeatherApiService.buildUriForGeocodingRequest("San Francisco");
+        URI uri = openWeatherApiService.buildUriForGeocodingRequest("Simple");
         HttpRequest request = OpenWeatherApiService.buildRequest(uri);
 
         HttpResponse<String> mockResponse = Mockito.mock(HttpResponse.class);
@@ -240,9 +222,30 @@ public class OpenWeatherApiTest {
         when(httpClient.send(request,HttpResponse.BodyHandlers.ofString())).thenReturn(mockResponse);
         return httpClient;
     }
+    private HttpClient createMockHttpClientforFoundWeather() throws IOException, InterruptedException {
+        HttpClient httpClient = mock(HttpClient.class);
+
+        URI uri = openWeatherApiService.buildUriForWeatherForLocationRequest(new BigDecimal("0"),new BigDecimal("0"));
+        HttpRequest request = OpenWeatherApiService.buildRequest(uri);
+
+        HttpResponse<String> mockResponse = Mockito.mock(HttpResponse.class);
+        when(mockResponse.body()).thenReturn(simpleWeather);
+
+        when(httpClient.send(request,HttpResponse.BodyHandlers.ofString())).thenReturn(mockResponse);
+        return httpClient;
+    }
     @Test
-    public void testLocationFound() {
-        List<LocationSearchDTO> location = openWeatherApiService.geocodingFromName("San+Francisco");
-        Assertions.assertEquals("San Francisco",location.get(0).getName());
+    public void testLocationFound() throws IOException, InterruptedException {
+        openWeatherApiService= new OpenWeatherApiService(createMockHttpClientforFoundCity());
+        List<LocationSearchDTO> location = openWeatherApiService.geocodingByName("Simple");
+        Assertions.assertEquals("Ryazan",location.get(0).getName());
+    }
+    @Test
+    public void testWeatherFound() throws IOException, InterruptedException {
+        openWeatherApiService= new OpenWeatherApiService(createMockHttpClientforFoundWeather());
+        var weather = openWeatherApiService.weatherForLocation(
+                (new Location(new User("pass", "pass"), "Mock", new BigDecimal("0"), new BigDecimal("0"))));
+        Assertions.assertEquals(13.5,weather.getMain().getTemp());
+        Assertions.assertEquals("San Francisco",weather.getName());
     }
 }

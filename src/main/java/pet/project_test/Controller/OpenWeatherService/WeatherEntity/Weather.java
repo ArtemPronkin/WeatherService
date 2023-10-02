@@ -3,15 +3,9 @@ package pet.project_test.Controller.OpenWeatherService.WeatherEntity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
-import java.util.List;
-
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class OpenWeatherLocationDTO {
-    String name;
-    Clouds clouds;
-    Main main;
-    Wind wind;
-    Integer id;
-    List<Weather> weather;
+public class Weather {
+    String icon;
+    String main;
 }

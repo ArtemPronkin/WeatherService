@@ -17,10 +17,12 @@ public class SearchCityServlet extends BaseServlet {
         webContext.setVariable("login", user.getLogin());
 
         String name = request.getParameter("name");
-        if (name == null) {
-            name = "";
+        if (name == null || name.isBlank()) {
+            response.sendRedirect(request.getContextPath() + "/home");
+            return;
         }
-        List<LocationSearchDTO> locationsList = openWeatherApiService.geocodingFromName(name.replace(' ', '+'));
+
+        List<LocationSearchDTO> locationsList = openWeatherApiService.geocodingByName(name.replace(' ', '+'));
         webContext.setVariable("locationsList", locationsList);
         templateEngine.process("search", webContext, response.getWriter());
 

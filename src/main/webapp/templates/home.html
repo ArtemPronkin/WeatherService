@@ -18,22 +18,30 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title" th:text="${location.getName()}">Name</h5>
-                                    <p class="card-text">Temp : <span th:text="${location.getMain().getTemp()}"></span>
+                                    <p class="card-text"><span
+                                            th:text="${location.getWeather().get(0).getMain()}"></span>
+                                    </p>
+                                    <div>
+                                        <img th:src="@{'http://openweathermap.org/img/w/'+${location.getWeather().get(0).getIcon()}+'.png'}"
+                                             alt='Icon depicting current weather.'>
+                                    </div>
+                                    <p class="card-text">Temp : <span th:text="${location.getMain().getTemp()}"></span>°C
                                     </p>
                                     <p class="card-text">Feels like : <span
-                                            th:text="${location.getMain().getFeels_like()}"></span></p>
+                                            th:text="${location.getMain().getFeels_like()}"></span>°C</p>
                                     <p class="card-text">Wind speed : <span
-                                            th:text="${location.getWind().getSpeed()}"></span>
+                                            th:text="${location.getWind().getSpeed()}"></span>km/h
                                     </p>
                                     <p class="card-text">Clouds : <span
-                                            th:text="${location.getClouds().getAll()}"></span></p>
+                                            th:text="${location.getClouds().getAll()}"></span>%</p>
                                     <p class="card-text">Humidity : <span
-                                            th:text="${location.getMain().getHumidity()}"></span></p>
+                                            th:text="${location.getMain().getHumidity()}"></span>%</p>
 
                                     <form method="post">
                                         <input th:name="id" th:value="${location.getId()}" type="hidden">
                                         <button class="btn btn-primary" type="submit">Delete</button>
                                     </form>
+
                                 </div>
                             </div>
                         </div>

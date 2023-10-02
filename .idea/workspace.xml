@@ -9,32 +9,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ba2399d-e8d8-4360-9b5d-acd977df8f12" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/EntityDAO.java" afterDir="false" />
+    <list default="true" id="1ba2399d-e8d8-4360-9b5d-acd977df8f12" name="Changes" comment="Добавил фичу: При добавление города имеющегося уже у юзера добавления не происходит.Поменял методы на методы экзмпляра.Добавил Абстрактный класс дао.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/OpenWeatherService/WeatherEntity/Weather.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/OpenWeatherService/OpenWeatherApiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/OpenWeatherService/OpenWeatherApiService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/OpenWeatherService/WeatherEntity/OpenWeatherLocationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/OpenWeatherService/WeatherEntity/OpenWeatherLocationDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/Authorization/LoginFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/Authorization/LoginFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/Authorization/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/Authorization/LoginServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/Authorization/OutProfileServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/Authorization/OutProfileServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/Authorization/RegistrationServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/Authorization/RegistrationServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/BaseServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/BaseServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/HomeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/HomeServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/SearchCityServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/SearchCityServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Validator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Validator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/main.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/Location/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/Location/Location.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/Location/LocationDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/Location/LocationDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/Location/LocationSearchDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/OpenWeatherService/WeatherEntity/LocationSearchDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/Session/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/Session/Session.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/Session/SessionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/Session/SessionDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/User/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/User/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/User/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/User/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Exception/ExceptionUserAlreadyExists.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/SessionFactoryUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/SessionFactoryUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernateH2.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/templates/search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/templates/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/SessionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/SessionTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pet/project_test/util/OpenWeatherApiTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pet/project_test/util/OpenWeatherApiTest.java" afterDir="false" />
     </list>
@@ -55,12 +40,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "ArtemPronkin"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;ArtemPronkin&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -87,32 +72,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/ART PRONKIN/Desktop/weather_service-test",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Global Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.5827586",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ART PRONKIN/Desktop/Farnenser&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.5827586&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "cde082e0-d4af-46a7-b99f-301c0b002ce5",
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;cde082e0-d4af-46a7-b99f-301c0b002ce5&quot;,
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\ART PRONKIN\Desktop\weather_service-test\src\test\resources" />
@@ -123,76 +108,51 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 10.1.13">
-    <configuration name="OpenWeatherApiTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.SessionTest">
+    <configuration name="SessionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pp5" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="pet.project_test.util.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="pet.project_test.util" />
-      <option name="MAIN_CLASS_NAME" value="pet.project_test.util.OpenWeatherApiTest" />
-      <option name="METHOD_NAME" value="LocationManytoOneTest" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SessionTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OpenWeatherApiTest.LocationManytoOneTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pp5" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="pet.project_test.util.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="pet.project_test.util" />
-      <option name="MAIN_CLASS_NAME" value="pet.project_test.util.OpenWeatherApiTest" />
-      <option name="METHOD_NAME" value="LocationManytoOneTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="OpenWeatherApiTest.WeatherLocationDTOFromJSONTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pp5" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="pet.project_test.util.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="pet.project_test.util" />
-      <option name="MAIN_CLASS_NAME" value="pet.project_test.util.OpenWeatherApiTest" />
-      <option name="METHOD_NAME" value="WeatherLocationDTOFromJSONTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="OpenWeatherApiTest.testLocationFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pp5" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="pet.project_test.util.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="pet.project_test.util" />
-      <option name="MAIN_CLASS_NAME" value="pet.project_test.util.OpenWeatherApiTest" />
-      <option name="METHOD_NAME" value="testLocationFound" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SessionTest.uniqueUserThrowTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SessionTest.isActualSessionWithActualSessionCookieTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pp5" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="SessionTest" />
-      <option name="METHOD_NAME" value="uniqueUserThrowTest" />
+      <option name="METHOD_NAME" value="isActualSessionWithActualSessionCookieTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SessionTest.isActualSessionWithEmptyCookieTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pp5" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SessionTest" />
+      <option name="METHOD_NAME" value="isActualSessionWithEmptyCookieTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SessionTest.isActualSessionWithExpiredSessionCookieTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pp5" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SessionTest" />
+      <option name="METHOD_NAME" value="isActualSessionWithExpiredSessionCookieTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SessionTest.isActualSessionWithRandomUUIDCookieTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pp5" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SessionTest" />
+      <option name="METHOD_NAME" value="isActualSessionWithRandomUUIDCookieTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -288,20 +248,20 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.OpenWeatherApiTest.testLocationFound" />
-      <item itemvalue="JUnit.OpenWeatherApiTest" />
-      <item itemvalue="JUnit.OpenWeatherApiTest.LocationManytoOneTest" />
-      <item itemvalue="JUnit.OpenWeatherApiTest.WeatherLocationDTOFromJSONTest" />
-      <item itemvalue="JUnit.SessionTest.uniqueUserThrowTest" />
+      <item itemvalue="JUnit.SessionTest" />
+      <item itemvalue="JUnit.SessionTest.isActualSessionWithActualSessionCookieTest" />
+      <item itemvalue="JUnit.SessionTest.isActualSessionWithEmptyCookieTest" />
+      <item itemvalue="JUnit.SessionTest.isActualSessionWithExpiredSessionCookieTest" />
+      <item itemvalue="JUnit.SessionTest.isActualSessionWithRandomUUIDCookieTest" />
       <item itemvalue="Tomcat Server.Tomcat 10.1.13" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.OpenWeatherApiTest.testLocationFound" />
-        <item itemvalue="JUnit.OpenWeatherApiTest.LocationManytoOneTest" />
-        <item itemvalue="JUnit.OpenWeatherApiTest.WeatherLocationDTOFromJSONTest" />
-        <item itemvalue="JUnit.OpenWeatherApiTest" />
-        <item itemvalue="JUnit.SessionTest.uniqueUserThrowTest" />
+        <item itemvalue="JUnit.SessionTest" />
+        <item itemvalue="JUnit.SessionTest.isActualSessionWithActualSessionCookieTest" />
+        <item itemvalue="JUnit.SessionTest.isActualSessionWithExpiredSessionCookieTest" />
+        <item itemvalue="JUnit.SessionTest.isActualSessionWithRandomUUIDCookieTest" />
+        <item itemvalue="JUnit.SessionTest.isActualSessionWithEmptyCookieTest" />
       </list>
     </recent_temporary>
   </component>
@@ -325,7 +285,8 @@
       <workItem from="1696000624405" duration="6292000" />
       <workItem from="1696022779136" duration="313000" />
       <workItem from="1696066656821" duration="23212000" />
-      <workItem from="1696157370291" duration="14810000" />
+      <workItem from="1696157370291" duration="21312000" />
+      <workItem from="1696244312842" duration="4883000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />
@@ -359,7 +320,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696158390162</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Добавил фичу: При добавление города имеющегося уже у юзера добавления не происходит.Поменял методы на методы экзмпляра.Добавил Абстрактный класс дао.">
+      <option name="closed" value="true" />
+      <created>1696174243127</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1696174243127</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -370,20 +339,26 @@
     <MESSAGE value="Доделал авторизацию , перевел на английский" />
     <MESSAGE value="Доделал функционал" />
     <MESSAGE value="Вынес получение юзера в базовый сервлет" />
-    <option name="LAST_COMMIT_MESSAGE" value="Вынес получение юзера в базовый сервлет" />
+    <MESSAGE value="Добавил фичу: При добавление города имеющегося уже у юзера добавления не происходит.Поменял методы на методы экзмпляра.Добавил Абстрактный класс дао." />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил фичу: При добавление города имеющегося уже у юзера добавления не происходит.Поменял методы на методы экзмпляра.Добавил Абстрактный класс дао." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/pet/project_test/util/OpenWeatherApiTest.java</url>
-          <line>231</line>
-          <option name="timeStamp" value="3" />
+          <url>file://$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/SearchCityServlet.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/SearchCityServlet.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="6" />
+          <url>file://$PROJECT_DIR$/src/test/java/pet/project_test/util/OpenWeatherApiTest.java</url>
+          <line>231</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/SessionTest.java</url>
+          <line>70</line>
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
