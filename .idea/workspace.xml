@@ -9,19 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ba2399d-e8d8-4360-9b5d-acd977df8f12" name="Changes" comment="Добавил фичу: При добавление города имеющегося уже у юзера добавления не происходит.Поменял методы на методы экзмпляра.Добавил Абстрактный класс дао.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/OpenWeatherService/WeatherEntity/Weather.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/OpenWeatherService/OpenWeatherApiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/OpenWeatherService/OpenWeatherApiService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/OpenWeatherService/WeatherEntity/OpenWeatherLocationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/OpenWeatherService/WeatherEntity/OpenWeatherLocationDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/Authorization/OutProfileServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/Authorization/OutProfileServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/BaseServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/BaseServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/HomeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/HomeServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/SearchCityServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/SearchCityServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/Location/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/Location/Location.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/templates/home.html" afterDir="false" />
+    <list default="true" id="1ba2399d-e8d8-4360-9b5d-acd977df8f12" name="Changes" comment="Сделал тесты">
       <change beforePath="$PROJECT_DIR$/src/test/java/SessionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/SessionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pet/project_test/util/OpenWeatherApiTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pet/project_test/util/OpenWeatherApiTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +97,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.SessionTest">
+  <component name="RunManager" selected="JUnit.SessionTest.uniqueUserThrowTest">
     <configuration name="SessionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pp5" />
       <option name="PACKAGE_NAME" value="" />
@@ -123,16 +112,6 @@
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="SessionTest" />
       <option name="METHOD_NAME" value="isActualSessionWithActualSessionCookieTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SessionTest.isActualSessionWithEmptyCookieTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pp5" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="SessionTest" />
-      <option name="METHOD_NAME" value="isActualSessionWithEmptyCookieTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -153,6 +132,16 @@
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="SessionTest" />
       <option name="METHOD_NAME" value="isActualSessionWithRandomUUIDCookieTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SessionTest.uniqueUserThrowTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pp5" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SessionTest" />
+      <option name="METHOD_NAME" value="uniqueUserThrowTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -250,18 +239,18 @@
     <list>
       <item itemvalue="JUnit.SessionTest" />
       <item itemvalue="JUnit.SessionTest.isActualSessionWithActualSessionCookieTest" />
-      <item itemvalue="JUnit.SessionTest.isActualSessionWithEmptyCookieTest" />
       <item itemvalue="JUnit.SessionTest.isActualSessionWithExpiredSessionCookieTest" />
       <item itemvalue="JUnit.SessionTest.isActualSessionWithRandomUUIDCookieTest" />
+      <item itemvalue="JUnit.SessionTest.uniqueUserThrowTest" />
       <item itemvalue="Tomcat Server.Tomcat 10.1.13" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SessionTest.uniqueUserThrowTest" />
         <item itemvalue="JUnit.SessionTest" />
         <item itemvalue="JUnit.SessionTest.isActualSessionWithActualSessionCookieTest" />
         <item itemvalue="JUnit.SessionTest.isActualSessionWithExpiredSessionCookieTest" />
         <item itemvalue="JUnit.SessionTest.isActualSessionWithRandomUUIDCookieTest" />
-        <item itemvalue="JUnit.SessionTest.isActualSessionWithEmptyCookieTest" />
       </list>
     </recent_temporary>
   </component>
@@ -286,7 +275,7 @@
       <workItem from="1696022779136" duration="313000" />
       <workItem from="1696066656821" duration="23212000" />
       <workItem from="1696157370291" duration="21312000" />
-      <workItem from="1696244312842" duration="4883000" />
+      <workItem from="1696244312842" duration="5490000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />
@@ -328,7 +317,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696174243127</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Сделал тесты">
+      <option name="closed" value="true" />
+      <created>1696249647622</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1696249647622</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -340,7 +337,8 @@
     <MESSAGE value="Доделал функционал" />
     <MESSAGE value="Вынес получение юзера в базовый сервлет" />
     <MESSAGE value="Добавил фичу: При добавление города имеющегося уже у юзера добавления не происходит.Поменял методы на методы экзмпляра.Добавил Абстрактный класс дао." />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавил фичу: При добавление города имеющегося уже у юзера добавления не происходит.Поменял методы на методы экзмпляра.Добавил Абстрактный класс дао." />
+    <MESSAGE value="Сделал тесты" />
+    <option name="LAST_COMMIT_MESSAGE" value="Сделал тесты" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -357,7 +355,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/SessionTest.java</url>
-          <line>70</line>
+          <line>71</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>

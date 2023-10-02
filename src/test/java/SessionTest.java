@@ -23,12 +23,16 @@ public class SessionTest {
     static UserDAO userDAO = new UserDAO();
     static SessionDAO sessionDAO = new SessionDAO();
     static LoginFilter loginFilter = new LoginFilter();
+    static User user1 = new User("test@test", "password");
+
+    @BeforeAll
+    static void before(){
+        userDAO.save(user1);
+    }
 
     @Test
     public void uniqueUserThrowTest() {
-        var user1 = new User("test@test", "password");
         var user2 = new User("test@test", "22password22");
-        userDAO.save(user1);
         Assertions.assertThrows(PersistenceException.class, () -> userDAO.save(user2));
     }
     @Test
@@ -41,8 +45,6 @@ public class SessionTest {
 
     @Test
     public void isActualSessionWithRandomUUIDCookieTest(){
-        var user1 = new User("testCockie", "password");
-        userDAO.save(user1);
         var cookies = new Cookie[]{new Cookie("sessionId",UUID.randomUUID().toString())};
         var httpServletRequest = mock(HttpServletRequest.class);
         when(httpServletRequest.getCookies()).thenReturn(cookies);
@@ -52,8 +54,6 @@ public class SessionTest {
     @Test
     public void isActualSessionWithExpiredSessionCookieTest(){
         UUID uuid = UUID.randomUUID();
-        var user1 = new User("testCockie1", "password");
-        userDAO.save(user1);
         sessionDAO.save(new Session(uuid,user1,LocalDateTime.now().minusDays(1)));
         var cookies = new Cookie[]{new Cookie("sessionId",uuid.toString())};
         var httpServletRequest = mock(HttpServletRequest.class);
@@ -63,8 +63,6 @@ public class SessionTest {
     @Test
     public void isActualSessionWithActualSessionCookieTest(){
         UUID uuid = UUID.randomUUID();
-        var user1 = new User("testCockie2", "password");
-        userDAO.save(user1);
         sessionDAO.save(new Session(uuid,user1,LocalDateTime.now().plusHours(24)));
         var cookies = new Cookie[]{new Cookie("sessionId",uuid.toString())};
         var httpServletRequest = mock(HttpServletRequest.class);
