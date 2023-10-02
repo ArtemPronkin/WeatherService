@@ -10,7 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1ba2399d-e8d8-4360-9b5d-acd977df8f12" name="Changes" comment="Сделал тесты">
-      <change beforePath="$PROJECT_DIR$/src/test/java/SessionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/SessionTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/OpenWeatherService/OpenWeatherApiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/OpenWeatherService/OpenWeatherApiService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pet/project_test/util/OpenWeatherApiTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/OpenWeatherApiTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +100,22 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.SessionTest">
+  <component name="RunManager" selected="Tomcat Server.Tomcat 10.1.13">
+    <configuration name="OpenWeatherApiTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pp5" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value=".*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="OpenWeatherApiTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SessionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pp5" />
       <option name="PACKAGE_NAME" value="" />
@@ -122,16 +140,6 @@
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="SessionTest" />
       <option name="METHOD_NAME" value="isActualSessionWithExpiredSessionCookieTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SessionTest.isActualSessionWithRandomUUIDCookieTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pp5" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="SessionTest" />
-      <option name="METHOD_NAME" value="isActualSessionWithRandomUUIDCookieTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -237,20 +245,20 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.OpenWeatherApiTest" />
       <item itemvalue="JUnit.SessionTest" />
       <item itemvalue="JUnit.SessionTest.isActualSessionWithActualSessionCookieTest" />
       <item itemvalue="JUnit.SessionTest.isActualSessionWithExpiredSessionCookieTest" />
-      <item itemvalue="JUnit.SessionTest.isActualSessionWithRandomUUIDCookieTest" />
       <item itemvalue="JUnit.SessionTest.uniqueUserThrowTest" />
       <item itemvalue="Tomcat Server.Tomcat 10.1.13" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.OpenWeatherApiTest" />
         <item itemvalue="JUnit.SessionTest" />
         <item itemvalue="JUnit.SessionTest.uniqueUserThrowTest" />
         <item itemvalue="JUnit.SessionTest.isActualSessionWithActualSessionCookieTest" />
         <item itemvalue="JUnit.SessionTest.isActualSessionWithExpiredSessionCookieTest" />
-        <item itemvalue="JUnit.SessionTest.isActualSessionWithRandomUUIDCookieTest" />
       </list>
     </recent_temporary>
   </component>
@@ -276,6 +284,7 @@
       <workItem from="1696066656821" duration="23212000" />
       <workItem from="1696157370291" duration="21312000" />
       <workItem from="1696244312842" duration="5490000" />
+      <workItem from="1696268603937" duration="1209000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />
@@ -325,7 +334,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696249647622</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Сделал тесты">
+      <option name="closed" value="true" />
+      <created>1696268724123</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1696268724123</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -349,13 +366,13 @@
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/pet/project_test/util/OpenWeatherApiTest.java</url>
-          <line>231</line>
+          <url>file://$PROJECT_DIR$/src/test/java/OpenWeatherApiTest.java</url>
+          <line>226</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/SessionTest.java</url>
-          <line>71</line>
+          <line>69</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>

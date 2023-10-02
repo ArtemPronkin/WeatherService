@@ -1,8 +1,5 @@
-package pet.project_test.util;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
 import org.mockito.Mockito;
 import pet.project_test.Controller.OpenWeatherService.OpenWeatherApiService;
 import pet.project_test.Entity.Location.Location;
@@ -17,12 +14,9 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.Collections;
 import java.util.List;
-
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class OpenWeatherApiTest {
     protected OpenWeatherApiService openWeatherApiService = new OpenWeatherApiService();
     protected UserDAO userDAO= new UserDAO();
