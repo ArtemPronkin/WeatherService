@@ -1,4 +1,4 @@
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
 import jakarta.persistence.PersistenceException;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
@@ -10,10 +10,7 @@ import pet.project_test.Entity.Session.Session;
 import pet.project_test.Entity.Session.SessionDAO;
 import pet.project_test.Entity.User.User;
 import pet.project_test.Entity.User.UserDAO;
-
-import java.net.http.HttpRequest;
 import java.time.LocalDateTime;
-import java.util.Random;
 import java.util.UUID;
 
 import static org.mockito.Mockito.mock;
@@ -24,9 +21,11 @@ public class SessionTest {
     static SessionDAO sessionDAO = new SessionDAO();
     static LoginFilter loginFilter = new LoginFilter();
     static User user1 = new User("test@test", "password");
+    static HttpServletRequest httpServletRequest ;
 
     @BeforeAll
     static void before(){
+        httpServletRequest = mock(HttpServletRequest.class);
         userDAO.save(user1);
     }
 
@@ -38,7 +37,6 @@ public class SessionTest {
     @Test
     public void isActualSessionWithEmptyCookieTest(){
         var cookies = new Cookie[0];
-        var httpServletRequest = mock(HttpServletRequest.class);
         when(httpServletRequest.getCookies()).thenReturn(cookies);
         Assertions.assertEquals(false,loginFilter.itsActualSession(httpServletRequest));
     }
@@ -46,7 +44,6 @@ public class SessionTest {
     @Test
     public void isActualSessionWithRandomUUIDCookieTest(){
         var cookies = new Cookie[]{new Cookie("sessionId",UUID.randomUUID().toString())};
-        var httpServletRequest = mock(HttpServletRequest.class);
         when(httpServletRequest.getCookies()).thenReturn(cookies);
 
         Assertions.assertEquals(false,loginFilter.itsActualSession(httpServletRequest));
@@ -56,7 +53,6 @@ public class SessionTest {
         UUID uuid = UUID.randomUUID();
         sessionDAO.save(new Session(uuid,user1,LocalDateTime.now().minusDays(1)));
         var cookies = new Cookie[]{new Cookie("sessionId",uuid.toString())};
-        var httpServletRequest = mock(HttpServletRequest.class);
         when(httpServletRequest.getCookies()).thenReturn(cookies);
         Assertions.assertEquals(false,loginFilter.itsActualSession(httpServletRequest));
     }
@@ -65,7 +61,6 @@ public class SessionTest {
         UUID uuid = UUID.randomUUID();
         sessionDAO.save(new Session(uuid,user1,LocalDateTime.now().plusHours(24)));
         var cookies = new Cookie[]{new Cookie("sessionId",uuid.toString())};
-        var httpServletRequest = mock(HttpServletRequest.class);
         when(httpServletRequest.getCookies()).thenReturn(cookies);
         Assertions.assertEquals(true,loginFilter.itsActualSession(httpServletRequest));
     }

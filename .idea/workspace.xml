@@ -97,7 +97,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.SessionTest.uniqueUserThrowTest">
+  <component name="RunManager" selected="JUnit.SessionTest">
     <configuration name="SessionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pp5" />
       <option name="PACKAGE_NAME" value="" />
@@ -246,8 +246,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.SessionTest.uniqueUserThrowTest" />
         <item itemvalue="JUnit.SessionTest" />
+        <item itemvalue="JUnit.SessionTest.uniqueUserThrowTest" />
         <item itemvalue="JUnit.SessionTest.isActualSessionWithActualSessionCookieTest" />
         <item itemvalue="JUnit.SessionTest.isActualSessionWithExpiredSessionCookieTest" />
         <item itemvalue="JUnit.SessionTest.isActualSessionWithRandomUUIDCookieTest" />
