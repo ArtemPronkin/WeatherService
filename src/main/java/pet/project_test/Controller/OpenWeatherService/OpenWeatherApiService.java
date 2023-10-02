@@ -23,22 +23,22 @@ import java.util.Properties;
 @NoArgsConstructor
 @Slf4j
 public class OpenWeatherApiService {
-    private static String APP_ID ;
+    private static String APP_ID = System.getenv("OpenWeatherApiServiceId");
     private static final String WEATHER_API_URL = "https://api.openweathermap.org" + "/data/2.5/weather";
     private static final String GEOCODING_API_URL = "https://api.openweathermap.org" + "/geo/1.0/direct";
     private  HttpClient httpClient = HttpClient.newHttpClient();
     private final  ObjectMapper objectMapper = new ObjectMapper();
-    static {
-        Properties prop = new Properties();
-        try {
-
-            prop.load(OpenWeatherApiService.class.getClassLoader().getResourceAsStream("config.properties"));
-            APP_ID = prop.getProperty("token");
-        }
-        catch (IOException ex) {
-            ex.printStackTrace();
-        }
-    }
+//    static {
+//        Properties prop = new Properties();
+//        try {
+//
+//            prop.load(OpenWeatherApiService.class.getClassLoader().getResourceAsStream("config.properties"));
+//            APP_ID = prop.getProperty("token");
+//        }
+//        catch (IOException ex) {
+//            ex.printStackTrace();
+//        }
+//    }
 
     public OpenWeatherApiService(HttpClient mockHttpClient) {
         httpClient=mockHttpClient;

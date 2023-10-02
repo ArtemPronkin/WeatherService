@@ -9,11 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ba2399d-e8d8-4360-9b5d-acd977df8f12" name="Changes" comment="Сделал тесты">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/config.properties" afterDir="false" />
+    <list default="true" id="1ba2399d-e8d8-4360-9b5d-acd977df8f12" name="Changes" comment="Добавил токен в гит игнор">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/OpenWeatherService/OpenWeatherApiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/OpenWeatherService/OpenWeatherApiService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pet/project_test/util/OpenWeatherApiTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/OpenWeatherApiTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/templates/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/templates/registration.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -284,7 +285,7 @@
       <workItem from="1696066656821" duration="23212000" />
       <workItem from="1696157370291" duration="21312000" />
       <workItem from="1696244312842" duration="5490000" />
-      <workItem from="1696268603937" duration="1209000" />
+      <workItem from="1696268603937" duration="4101000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />
@@ -342,11 +343,38 @@
       <option name="project" value="LOCAL" />
       <updated>1696268724123</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Вынес токен в проперти файл">
+      <option name="closed" value="true" />
+      <created>1696269972873</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1696269972873</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Добавил токен в гит игнор">
+      <option name="closed" value="true" />
+      <created>1696270251171</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1696270251171</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit" />
@@ -355,7 +383,9 @@
     <MESSAGE value="Вынес получение юзера в базовый сервлет" />
     <MESSAGE value="Добавил фичу: При добавление города имеющегося уже у юзера добавления не происходит.Поменял методы на методы экзмпляра.Добавил Абстрактный класс дао." />
     <MESSAGE value="Сделал тесты" />
-    <option name="LAST_COMMIT_MESSAGE" value="Сделал тесты" />
+    <MESSAGE value="Вынес токен в проперти файл" />
+    <MESSAGE value="Добавил токен в гит игнор" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил токен в гит игнор" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
