@@ -1,9 +1,10 @@
 package pet.project_test.Controller.Servlets;
 
 
-import jakarta.servlet.*;
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import pet.project_test.Controller.OpenWeatherService.WeatherEntity.OpenWeatherLocationDTO;
 import pet.project_test.Entity.User.User;
 
@@ -12,6 +13,8 @@ import java.util.List;
 
 @WebServlet(name = "HomeServlet", value = "/home")
 public class HomeServlet extends BaseServlet {
+
+    @Override
     protected void get(HttpServletRequest request, HttpServletResponse response, User user) throws ServletException, IOException {
         webContext.setVariable("login", user.getLogin());
         List<OpenWeatherLocationDTO> weatherList = openWeatherApiService.getListWeatherByListLocation(user.getLocationList());
@@ -24,6 +27,6 @@ public class HomeServlet extends BaseServlet {
     protected void post(HttpServletRequest request, HttpServletResponse response, User user) throws ServletException, IOException {
         String id = request.getParameter("id");
         locationDAO.deleteForId(Integer.parseInt(id));
-        doGet(request,response);
+        response.sendRedirect(request.getContextPath() + request.getServletPath());
     }
 }

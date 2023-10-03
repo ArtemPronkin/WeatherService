@@ -11,24 +11,28 @@
 <div class="container">
     <div class="row justify-content-md-center">
         <div class="col col-lg-6">
-            <div th:replace="~{message-component}"></div>
-            <form method="post" >
 
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Email address</label>
-                    <input name="login" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div style="margin-top: 20% ">
+                <form method="post">
+                    <div th:replace="~{message-component}"></div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <input name="login" type="email" class="form-control" id="exampleInputEmail1"
+                               aria-describedby="emailHelp">
 
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input name="password" type="password" class="form-control" id="exampleInputPassword1">
-                </div>
-                <div class="mb-3 form-check">
-                </div>
-                <button type="submit" class="btn btn-primary">Log in</button>
-                <a th:href="@{/registration}" class="btn btn-primary" role="button">Registration</a>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <input name="password" type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="mb-3 form-check">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Log in</button>
+                    <a th:href="@{/registration}" class="btn btn-primary" role="button">Registration</a>
 
-            </form>
+                </form>
+
+            </div>
         </div>
     </div>
 </div>

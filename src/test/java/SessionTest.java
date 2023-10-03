@@ -1,4 +1,3 @@
-
 import jakarta.persistence.PersistenceException;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
@@ -10,6 +9,7 @@ import pet.project_test.Entity.Session.Session;
 import pet.project_test.Entity.Session.SessionDAO;
 import pet.project_test.Entity.User.User;
 import pet.project_test.Entity.User.UserDAO;
+
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -21,10 +21,10 @@ public class SessionTest {
     static SessionDAO sessionDAO = new SessionDAO();
     static LoginFilter loginFilter = new LoginFilter();
     static User user1 = new User("test@test", "password");
-    static HttpServletRequest httpServletRequest ;
+    static HttpServletRequest httpServletRequest;
 
     @BeforeAll
-    static void before(){
+    static void before() {
         httpServletRequest = mock(HttpServletRequest.class);
         userDAO.save(user1);
     }
@@ -34,35 +34,47 @@ public class SessionTest {
         var user2 = new User("test@test", "22password22");
         Assertions.assertThrows(PersistenceException.class, () -> userDAO.save(user2));
     }
+
     @Test
-    public void isActualSessionWithEmptyCookieTest(){
+    public void isActualSessionWithEmptyCookieTest() {
         var cookies = new Cookie[0];
         when(httpServletRequest.getCookies()).thenReturn(cookies);
-        Assertions.assertEquals(false,loginFilter.itsActualSession(httpServletRequest));
+        Assertions.assertEquals(false, loginFilter.itsActualSession(httpServletRequest));
     }
 
     @Test
-    public void isActualSessionWithRandomUUIDCookieTest(){
-        var cookies = new Cookie[]{new Cookie("sessionId",UUID.randomUUID().toString())};
+    public void isActualSessionWithRandomUUIDCookieTest() {
+        var cookies = new Cookie[]{new Cookie("sessionId", UUID.randomUUID().toString())};
         when(httpServletRequest.getCookies()).thenReturn(cookies);
 
-        Assertions.assertEquals(false,loginFilter.itsActualSession(httpServletRequest));
+        Assertions.assertEquals(false, loginFilter.itsActualSession(httpServletRequest));
     }
+
     @Test
-    public void isActualSessionWithExpiredSessionCookieTest(){
+    public void isActualSessionWithExpiredSessionCookieTest() {
         UUID uuid = UUID.randomUUID();
-        sessionDAO.save(new Session(uuid,user1,LocalDateTime.now().minusDays(1)));
-        var cookies = new Cookie[]{new Cookie("sessionId",uuid.toString())};
+        sessionDAO.save(new Session(uuid, user1, LocalDateTime.now().minusDays(1)));
+        var cookies = new Cookie[]{new Cookie("sessionId", uuid.toString())};
         when(httpServletRequest.getCookies()).thenReturn(cookies);
-        Assertions.assertEquals(false,loginFilter.itsActualSession(httpServletRequest));
+        Assertions.assertEquals(false, loginFilter.itsActualSession(httpServletRequest));
     }
+
     @Test
-    public void isActualSessionWithActualSessionCookieTest(){
+    public void isActualSessionWithActualSessionCookieTest() {
         UUID uuid = UUID.randomUUID();
-        sessionDAO.save(new Session(uuid,user1,LocalDateTime.now().plusHours(24)));
-        var cookies = new Cookie[]{new Cookie("sessionId",uuid.toString())};
+        sessionDAO.save(new Session(uuid, user1, LocalDateTime.now().plusHours(24)));
+        var cookies = new Cookie[]{new Cookie("sessionId", uuid.toString())};
         when(httpServletRequest.getCookies()).thenReturn(cookies);
-        Assertions.assertEquals(true,loginFilter.itsActualSession(httpServletRequest));
+        Assertions.assertEquals(true, loginFilter.itsActualSession(httpServletRequest));
+    }
+
+    @Test
+    public void deleteExpiredSessionTest() {
+        UUID uuid = UUID.randomUUID();
+        sessionDAO.save(new Session(uuid, user1, LocalDateTime.now()));
+        sessionDAO.deleteExpiredSessions(LocalDateTime.now().plusHours(1));
+        Assertions.assertTrue(sessionDAO.getById(uuid).isEmpty());
+
     }
 
 

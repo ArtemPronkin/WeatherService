@@ -2,10 +2,7 @@ package pet.project_test.Entity.Location;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-import jakarta.ws.rs.ext.ParamConverter;
 import lombok.*;
-import org.hibernate.annotations.JdbcType;
-import org.hibernate.annotations.Type;
 import pet.project_test.Entity.User.User;
 
 import java.math.BigDecimal;
@@ -27,10 +24,12 @@ public class Location {
     @ManyToOne()
     @JoinColumn(name = "user_id")
     private User user;
+    @Column(precision = 38, scale = 10)
     private BigDecimal latitide;
+    @Column(precision = 38, scale = 10)
     private BigDecimal longitide;
 
-    public Location(User user,String name, BigDecimal latitide, BigDecimal longitide) {
+    public Location(User user, String name, BigDecimal latitide, BigDecimal longitide) {
         this.name = name;
         this.latitide = latitide;
         this.longitide = longitide;

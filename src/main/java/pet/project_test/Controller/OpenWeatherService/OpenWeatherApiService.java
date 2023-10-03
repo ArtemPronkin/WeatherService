@@ -5,9 +5,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import pet.project_test.Controller.OpenWeatherService.WeatherEntity.LocationSearchDTO;
 import pet.project_test.Controller.OpenWeatherService.WeatherEntity.OpenWeatherLocationDTO;
 import pet.project_test.Entity.Location.Location;
-import pet.project_test.Controller.OpenWeatherService.WeatherEntity.LocationSearchDTO;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -17,31 +17,19 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
 @Data
 @NoArgsConstructor
 @Slf4j
 public class OpenWeatherApiService {
-    private static String APP_ID = System.getenv("OpenWeatherApiServiceId");
+    private static final String APP_ID = System.getenv("OpenWeatherApiServiceId");
     private static final String WEATHER_API_URL = "https://api.openweathermap.org" + "/data/2.5/weather";
     private static final String GEOCODING_API_URL = "https://api.openweathermap.org" + "/geo/1.0/direct";
-    private  HttpClient httpClient = HttpClient.newHttpClient();
-    private final  ObjectMapper objectMapper = new ObjectMapper();
-//    static {
-//        Properties prop = new Properties();
-//        try {
-//
-//            prop.load(OpenWeatherApiService.class.getClassLoader().getResourceAsStream("config.properties"));
-//            APP_ID = prop.getProperty("token");
-//        }
-//        catch (IOException ex) {
-//            ex.printStackTrace();
-//        }
-//    }
+    private HttpClient httpClient = HttpClient.newHttpClient();
+    private final ObjectMapper objectMapper = new ObjectMapper();
 
     public OpenWeatherApiService(HttpClient mockHttpClient) {
-        httpClient=mockHttpClient;
+        httpClient = mockHttpClient;
     }
 
     public static HttpRequest buildRequest(URI uri) {
@@ -64,7 +52,7 @@ public class OpenWeatherApiService {
         }
     }
 
-    public  List<LocationSearchDTO> geocodingByName(String name) {
+    public List<LocationSearchDTO> geocodingByName(String name) {
         var uri = (buildUriForGeocodingRequest(name));
         log.info(uri.toString());
         HttpRequest httpRequest = buildRequest(uri);
@@ -80,15 +68,13 @@ public class OpenWeatherApiService {
     }
 
     public URI buildUriForGeocodingRequest(String nameOfLocation) {
-        // Somehow without explicit limit api returns only 1 object
         return URI.create(GEOCODING_API_URL
                 + "?q=" + nameOfLocation
                 + "&limit=6"
                 + "&appid=" + APP_ID);
     }
 
-    public  URI buildUriForWeatherForLocationRequest(BigDecimal lat, BigDecimal lon) {
-        // Somehow without explicit limit api returns only 1 object
+    public URI buildUriForWeatherForLocationRequest(BigDecimal lat, BigDecimal lon) {
         return URI.create(WEATHER_API_URL
                 + "?lat=" + lat.toString()
                 + "&lon=" + lon.toString()
@@ -96,7 +82,7 @@ public class OpenWeatherApiService {
                 + "&appid=" + APP_ID);
     }
 
-    public  List<OpenWeatherLocationDTO> getListWeatherByListLocation(List<Location> list) {
+    public List<OpenWeatherLocationDTO> getListWeatherByListLocation(List<Location> list) {
         List<OpenWeatherLocationDTO> result = new ArrayList<>();
         for (Location loc :
                 list) {

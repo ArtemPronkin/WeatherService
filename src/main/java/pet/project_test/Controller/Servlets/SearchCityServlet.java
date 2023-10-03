@@ -1,10 +1,15 @@
 package pet.project_test.Controller.Servlets;
 
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
-import pet.project_test.Entity.Location.Location;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import lombok.SneakyThrows;
+import pet.project_test.Controller.Exception.ExceptionEmptyListFound;
+import pet.project_test.Controller.Exception.ExceptionLocationAlreadyExist;
 import pet.project_test.Controller.OpenWeatherService.WeatherEntity.LocationSearchDTO;
+import pet.project_test.Entity.Location.Location;
 import pet.project_test.Entity.User.User;
+
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -13,39 +18,44 @@ import java.util.List;
 @WebServlet(name = "SearchCityServlet", value = "/search")
 public class SearchCityServlet extends BaseServlet {
 
-    protected void get(HttpServletRequest request, HttpServletResponse response, User user) throws  IOException {
+    @SneakyThrows
+    @Override
+    protected void get(HttpServletRequest request, HttpServletResponse response, User user) throws IOException {
         webContext.setVariable("login", user.getLogin());
 
         String name = request.getParameter("name");
         if (name == null || name.isBlank()) {
-            response.sendRedirect(request.getContextPath() + "/home");
-            return;
+            throw new ExceptionEmptyListFound("Empty search blank");
         }
 
         List<LocationSearchDTO> locationsList = openWeatherApiService.geocodingByName(name.replace(' ', '+'));
+        if (locationsList.isEmpty()) {
+            throw new ExceptionEmptyListFound("Location not found");
+        }
         webContext.setVariable("locationsList", locationsList);
         templateEngine.process("search", webContext, response.getWriter());
 
 
     }
 
+    @SneakyThrows
     @Override
-    protected void post(HttpServletRequest request, HttpServletResponse response, User user) throws  IOException {
+    protected void post(HttpServletRequest request, HttpServletResponse response, User user) throws IOException {
 
         String name = request.getParameter("name");
         String latitude = request.getParameter("latitude");
-        String longitude = request.getParameter("longitude");;
+        String longitude = request.getParameter("longitude");
+        ;
 
-        var bigDecimallat = new BigDecimal(latitude).setScale(10, RoundingMode.HALF_DOWN);
-        var bigDecimallon = new BigDecimal(longitude).setScale(10, RoundingMode.HALF_DOWN);
+        var bigDecimalLat = new BigDecimal(latitude).setScale(10, RoundingMode.HALF_DOWN);
+        var bigDecimalLon = new BigDecimal(longitude).setScale(10, RoundingMode.HALF_DOWN);
 
-        for (Location loc: user.getLocationList()) {
+        for (Location loc : user.getLocationList()) {
             if (loc.getLongitide().setScale(10, RoundingMode.HALF_DOWN)
-                    .equals(bigDecimallon)
+                    .equals(bigDecimalLon)
                     && loc.getLatitide().setScale(10, RoundingMode.HALF_DOWN)
-                    .equals(bigDecimallat)){
-                response.sendRedirect(request.getContextPath() + "/home");
-                return;
+                    .equals(bigDecimalLat)) {
+                throw new ExceptionLocationAlreadyExist("Location already exists in home");
             }
         }
 

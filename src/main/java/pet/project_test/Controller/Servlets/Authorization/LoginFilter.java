@@ -17,7 +17,7 @@ import java.util.UUID;
 
 @Slf4j
 public class LoginFilter implements Filter {
-    private List excludedUrls;
+    private List<String> excludedUrls;
 
     SessionDAO sessionDAO = new SessionDAO();
 
@@ -37,11 +37,11 @@ public class LoginFilter implements Filter {
 
         boolean itsActualSession = itsActualSession(req);
 
-        if( ! itsActualSession && !excludedUrls.contains(path) ){
+        if (!itsActualSession && !excludedUrls.contains(path)) {
             resp.sendRedirect(((HttpServletRequest) servletRequest).getContextPath() + "/login");
             return;
         }
-        if (  itsActualSession &&  excludedUrls.contains(path) ){
+        if (itsActualSession && excludedUrls.contains(path)) {
             resp.sendRedirect(((HttpServletRequest) servletRequest).getContextPath() + "/home");
             return;
         }
@@ -58,9 +58,9 @@ public class LoginFilter implements Filter {
         Cookie[] cookies = request.getCookies();
         String cookieName = "sessionId";
         Optional<UUID> uuid = Optional.empty();
-        if(cookies !=null) {
-            for(Cookie c: cookies) {
-                if(cookieName.equals(c.getName())) {
+        if (cookies != null) {
+            for (Cookie c : cookies) {
+                if (cookieName.equals(c.getName())) {
                     uuid = Optional.of(UUID.fromString(c.getValue()));
                     break;
                 }
@@ -68,20 +68,21 @@ public class LoginFilter implements Filter {
         }
         return uuid;
     }
-    public boolean itsActualSession(HttpServletRequest request){
+
+    public boolean itsActualSession(HttpServletRequest request) {
         var optionalIdSessionFromCookie = getSessionUUIDFromRequest(request);
-        if(optionalIdSessionFromCookie.isEmpty()){
+        if (optionalIdSessionFromCookie.isEmpty()) {
             return false;
         }
 
         Optional<Session> optionalSession = sessionDAO.getById(optionalIdSessionFromCookie.get());
-        if(optionalSession.isEmpty()){
+        if (optionalSession.isEmpty()) {
             return false;
         }
 
-        var expiresAt =optionalSession.get().getExpiresAt();
+        var expiresAt = optionalSession.get().getExpiresAt();
         var currentTime = LocalDateTime.now();
-        if(currentTime.isAfter(expiresAt)){
+        if (currentTime.isAfter(expiresAt)) {
             return false;
         }
         return true;
