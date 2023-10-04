@@ -3,7 +3,6 @@ package pet.project_test.Entity.User;
 import jakarta.persistence.*;
 import lombok.*;
 import pet.project_test.Entity.Location.Location;
-import pet.project_test.Entity.Location.LocationDAO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "users",indexes = {@Index(name = "loginIndex", columnList = "login")})
+@Table(name = "users", indexes = {@Index(name = "loginIndex", columnList = "login")})
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +22,7 @@ public class User {
     @Column(unique = true)
     private String login;
     private String password;
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "user", fetch = FetchType.EAGER)
     private List<Location> locationList = new ArrayList<>();
 
     public User(String login, String password) {

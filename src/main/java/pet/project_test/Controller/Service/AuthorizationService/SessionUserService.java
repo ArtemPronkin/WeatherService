@@ -25,7 +25,7 @@ public class SessionUserService {
         return uuid;
     }
 
-    public void addSessionCookie(UUID uuid, HttpServletResponse response) {
+    public void setSessionCookie(UUID uuid, HttpServletResponse response) {
         Cookie cookie = new Cookie("sessionId", uuid.toString());
         log.info("add Cookie: " + uuid.toString());
         response.addCookie(cookie);
@@ -69,5 +69,11 @@ public class SessionUserService {
             }
         }
         return uuid;
+    }
+
+    public void setEmptyCookieSession(HttpServletResponse response) {
+        Cookie emptyCookie = new Cookie("sessionId", null);
+        emptyCookie.setMaxAge(0);
+        response.addCookie(emptyCookie);
     }
 }

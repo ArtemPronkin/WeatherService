@@ -32,7 +32,7 @@ public class RegistrationServlet extends BaseServlet {
         }
         var user = userAccountService.registrationNewUser(login, password);
         var uuid = sessionUserService.createNewSession(user);
-        sessionUserService.addSessionCookie(uuid, response);
+        sessionUserService.setSessionCookie(uuid, response);
         response.sendRedirect(request.getContextPath() + "/home");
     }
 }

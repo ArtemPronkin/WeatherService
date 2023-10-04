@@ -3,15 +3,19 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import pet.project_test.Controller.Exception.IncorrectPassword;
-import pet.project_test.Controller.Exception.UserAlreadyExistsException;
+import pet.project_test.Controller.Exception.ExceptionIncorrectPassword;
+import pet.project_test.Controller.Exception.ExceptionUserAlreadyExistsException;
+import pet.project_test.Controller.Exception.ExceptionUserNotFound;
 import pet.project_test.Controller.Service.AuthorizationService.SessionUserService;
 import pet.project_test.Controller.Service.AuthorizationService.UserAccountService;
+import pet.project_test.Entity.Location.Location;
+import pet.project_test.Entity.Location.LocationDAO;
 import pet.project_test.Entity.Session.Session;
 import pet.project_test.Entity.Session.SessionDAO;
 import pet.project_test.Entity.User.User;
 import pet.project_test.Entity.User.UserDAO;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -23,6 +27,7 @@ public class SessionTest {
     static SessionDAO sessionDAO = new SessionDAO();
     static SessionUserService sessionUserService = new SessionUserService();
     static UserAccountService userAccountService = new UserAccountService();
+    static LocationDAO locationDAO = new LocationDAO();
     static User user1 = new User("test@test", "password");
     static HttpServletRequest httpServletRequest;
 
@@ -33,16 +38,16 @@ public class SessionTest {
     }
 
     @Test
-    public void uniqueUserThrowTest() throws UserAlreadyExistsException {
+    public void uniqueUserThrowTest() throws ExceptionUserAlreadyExistsException {
         userAccountService.registrationNewUser("test222@test", "test@test");
-        Assertions.assertThrows(UserAlreadyExistsException.class,
+        Assertions.assertThrows(ExceptionUserAlreadyExistsException.class,
                 () -> userAccountService.registrationNewUser("test222@test", "test@test"));
     }
 
     @Test
-    public void InCorrectedPasswordThrowTest() throws UserAlreadyExistsException {
+    public void InCorrectedPasswordThrowTest() throws ExceptionUserAlreadyExistsException {
         userAccountService.registrationNewUser("test333@test", "test@test");
-        Assertions.assertThrows(IncorrectPassword.class,
+        Assertions.assertThrows(ExceptionIncorrectPassword.class,
                 () -> userAccountService.login("test333@test", "NotPassword"));
     }
 
@@ -83,6 +88,20 @@ public class SessionTest {
         sessionDAO.save(new Session(uuid, user1, LocalDateTime.now()));
         sessionDAO.deleteExpiredSessions(LocalDateTime.now().plusHours(1));
         Assertions.assertTrue(sessionDAO.getById(uuid).isEmpty());
+    }
+
+    @Test
+    public void deleteUserTest() throws ExceptionUserAlreadyExistsException, ExceptionIncorrectPassword, ExceptionUserNotFound {
+        var login = "homes";
+        var password = login;
+        var user4 = userAccountService.registrationNewUser(login, password);
+        sessionUserService.createNewSession(user4);
+        Location location = new Location(user4, "London", new BigDecimal("0"), new BigDecimal("0"));
+        locationDAO.save(location);
+        userAccountService.deleteUser(user4);
+        Assertions.assertThrows(ExceptionUserNotFound.class, () -> userAccountService.login(login, password));
+        var user5 = userAccountService.registrationNewUser(login, password);
+        Assertions.assertTrue(user5.getLocationList().isEmpty());
     }
 
 

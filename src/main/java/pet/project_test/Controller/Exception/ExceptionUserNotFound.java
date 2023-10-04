@@ -2,8 +2,8 @@ package pet.project_test.Controller.Exception;
 
 import jakarta.servlet.ServletException;
 
-public class ExceptionAccess extends ServletException {
-    public ExceptionAccess(String message) {
+public class ExceptionUserNotFound extends ServletException {
+    public ExceptionUserNotFound(String message) {
         super(message);
     }
 }

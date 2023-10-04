@@ -35,7 +35,7 @@ public class LoginServlet extends BaseServlet {
         }
         User user = userAccountService.login(login, password);
         var uuid = sessionUserService.createNewSession(user);
-        sessionUserService.addSessionCookie(uuid, response);
+        sessionUserService.setSessionCookie(uuid, response);
         response.sendRedirect(request.getContextPath() + "/home");
     }
 }

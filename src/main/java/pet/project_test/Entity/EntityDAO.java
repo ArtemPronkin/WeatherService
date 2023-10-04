@@ -32,6 +32,8 @@ public abstract class EntityDAO<T> {
         try {
             transaction = session.beginTransaction();
             session.remove(entity);
+            session.flush();
+            session.clear();
             transaction.commit();
         } catch (RuntimeException e) {
             if (transaction != null) {

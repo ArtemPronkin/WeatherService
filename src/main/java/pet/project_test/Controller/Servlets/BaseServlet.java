@@ -15,9 +15,7 @@ import pet.project_test.Controller.Service.AuthorizationService.UserAccountServi
 import pet.project_test.Controller.Service.OpenWeatherService.OpenWeatherApiService;
 import pet.project_test.Controller.Servlets.ListenerTemplateEngine.TemplateEngineUtil;
 import pet.project_test.Entity.Location.LocationDAO;
-import pet.project_test.Entity.Session.SessionDAO;
 import pet.project_test.Entity.User.User;
-import pet.project_test.Entity.User.UserDAO;
 
 import java.io.IOException;
 
@@ -30,8 +28,6 @@ public abstract class BaseServlet extends HttpServlet {
     protected OpenWeatherApiService openWeatherApiService = new OpenWeatherApiService();
     protected UserAccountService userAccountService = new UserAccountService();
     protected SessionUserService sessionUserService = new SessionUserService();
-    protected UserDAO userDAO = new UserDAO();
-    protected SessionDAO sessionDAO = new SessionDAO();
     protected LocationDAO locationDAO = new LocationDAO();
 
     @Override
@@ -47,9 +43,9 @@ public abstract class BaseServlet extends HttpServlet {
         webContext.setVariable("message", request.getParameter("message"));
         try {
             super.service(request, response);
-            forCatchExceptions();
-        } catch (ExceptionWIthMessage | UserAlreadyExistsException | UserNotFound | SessionNotFound |
-                 IncorrectPassword e) {
+        } catch (ExceptionWIthMessage | ExceptionUserAlreadyExistsException | ExceptionUserNotFound |
+                 ExceptionSessionNotFound |
+                 ExceptionIncorrectPassword e) {
             response.sendRedirect(request.getContextPath() + request.getServletPath() + "?message=" + e.getMessage());
         } catch (ExceptionAccess e) {
             response.sendRedirect(request.getContextPath() + "/login" + "?message=" + e.getMessage());
@@ -78,34 +74,5 @@ public abstract class BaseServlet extends HttpServlet {
 
     protected void get(HttpServletRequest request, HttpServletResponse response, User user) throws ServletException, IOException {
 
-    }
-
-    private void forCatchExceptions() throws ExceptionWIthMessage, ExceptionAccess, ExceptionEmptyListFound, ExceptionLocationAlreadyExist, UserAlreadyExistsException, IncorrectPassword, UserNotFound, SessionNotFound {
-        if (false) {
-            if (false) {
-                throw new ExceptionWIthMessage("");
-            }
-            if (false) {
-                throw new ExceptionAccess("");
-            }
-            if (false) {
-                throw new ExceptionEmptyListFound("");
-            }
-            if (false) {
-                throw new ExceptionLocationAlreadyExist("");
-            }
-            if (false) {
-                throw new UserAlreadyExistsException("");
-            }
-            if (false) {
-                throw new IncorrectPassword("");
-            }
-            if (false) {
-                throw new SessionNotFound("");
-            }
-            if (false) {
-                throw new UserNotFound("");
-            }
-        }
     }
 }

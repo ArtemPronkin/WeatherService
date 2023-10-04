@@ -9,29 +9,39 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ba2399d-e8d8-4360-9b5d-acd977df8f12" name="Changes" comment="эксперементики">
-      <change afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/DeleteSessionService/SessionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionAccess.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionEmptyListFound.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionLocationAlreadyExist.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionWIthMessage.java" afterDir="false" />
+    <list default="true" id="1ba2399d-e8d8-4360-9b5d-acd977df8f12" name="Changes" comment="Вынес обработку Эксепшенов в базовый сервлет, выровнял сетку в шаблонах">
+      <change afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionIncorrectPassword.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionSessionNotFound.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionUserAlreadyExistsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionUserNotFound.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/Authorization/DeleteUserServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/Authorization/EditPasswordServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/templates/delete.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/templates/editPassword.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/OpenWeatherService/OpenWeatherApiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/OpenWeatherService/OpenWeatherApiService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/Authorization/LoginFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/Authorization/LoginFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/AbstractExc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/AbstractExc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionEmptyListFound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionEmptyListFound.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionLocationAlreadyExist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionLocationAlreadyExist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionWIthMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionWIthMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/IncorrectPassword.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/SessionNotFound.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/UserAlreadyExistsException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/UserNotFound.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Service/AuthorizationService/SessionUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Service/AuthorizationService/SessionUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Service/AuthorizationService/UserAccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Service/AuthorizationService/UserAccountService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/Authorization/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/Authorization/LoginServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/Authorization/OutProfileServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/Authorization/OutProfileServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/Authorization/RegistrationServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/Authorization/RegistrationServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/BaseServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/BaseServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/HomeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/HomeServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/ListenerTemplateEngine/Listener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/ListenerTemplateEngine/TemplateListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/SearchCityServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/SearchCityServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/EntityDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/EntityDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/Location/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/Location/Location.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/Session/SessionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/Session/SessionDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/Session/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/Session/Session.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/User/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/User/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/templates/header-component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/templates/header-component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/templates/message-component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/templates/message-component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/templates/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/templates/registration.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/templates/search.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/SessionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/SessionTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,9 +52,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -160,11 +170,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SessionTest.isActualSessionWithActualSessionCookieTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SessionTest.deleteUserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pp5" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="SessionTest" />
-      <option name="METHOD_NAME" value="isActualSessionWithActualSessionCookieTest" />
+      <option name="METHOD_NAME" value="deleteUserTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -270,20 +280,20 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.SessionTest.deleteUserTest" />
       <item itemvalue="JUnit.SessionTest.deleteExpiredSessionTest" />
       <item itemvalue="JUnit.OpenWeatherApiTest" />
       <item itemvalue="JUnit.SessionTest" />
-      <item itemvalue="JUnit.SessionTest.isActualSessionWithActualSessionCookieTest" />
       <item itemvalue="JUnit.SessionTest.uniqueUserThrowTest" />
       <item itemvalue="Tomcat Server.Tomcat 10.1.13" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SessionTest.deleteUserTest" />
         <item itemvalue="JUnit.SessionTest" />
         <item itemvalue="JUnit.SessionTest.deleteExpiredSessionTest" />
         <item itemvalue="JUnit.OpenWeatherApiTest" />
         <item itemvalue="JUnit.SessionTest.uniqueUserThrowTest" />
-        <item itemvalue="JUnit.SessionTest.isActualSessionWithActualSessionCookieTest" />
       </list>
     </recent_temporary>
   </component>
@@ -313,7 +323,8 @@
       <workItem from="1696272782871" duration="2209000" />
       <workItem from="1696275683949" duration="5637000" />
       <workItem from="1696290069281" duration="4112000" />
-      <workItem from="1696296283666" duration="2889000" />
+      <workItem from="1696296283666" duration="4176000" />
+      <workItem from="1696443827817" duration="8540000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />
@@ -395,7 +406,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696272890556</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Вынес обработку Эксепшенов в базовый сервлет, выровнял сетку в шаблонах">
+      <option name="closed" value="true" />
+      <created>1696299434182</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1696299434182</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -423,19 +442,20 @@
     <MESSAGE value="Добавил токен в гит игнор" />
     <MESSAGE value="Переписал получение токена через System.getenv()" />
     <MESSAGE value="эксперементики" />
-    <option name="LAST_COMMIT_MESSAGE" value="эксперементики" />
+    <MESSAGE value="Вынес обработку Эксепшенов в базовый сервлет, выровнял сетку в шаблонах" />
+    <option name="LAST_COMMIT_MESSAGE" value="Вынес обработку Эксепшенов в базовый сервлет, выровнял сетку в шаблонах" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/OpenWeatherApiTest.java</url>
-          <line>226</line>
+          <line>229</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/SessionTest.java</url>
-          <line>81</line>
+          <line>108</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>

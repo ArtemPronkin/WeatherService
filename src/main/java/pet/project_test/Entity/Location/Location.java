@@ -3,6 +3,8 @@ package pet.project_test.Entity.Location;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import pet.project_test.Entity.User.User;
 
 import java.math.BigDecimal;
@@ -21,8 +23,9 @@ public class Location {
     private int id;
 
     private String name;
-    @ManyToOne()
     @JoinColumn(name = "user_id")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @ManyToOne(fetch = FetchType.EAGER)
     private User user;
     @Column(precision = 38, scale = 10)
     private BigDecimal latitide;

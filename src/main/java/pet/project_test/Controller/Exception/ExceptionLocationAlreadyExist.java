@@ -1,10 +1,9 @@
 package pet.project_test.Controller.Exception;
 
-import lombok.AllArgsConstructor;
+import jakarta.servlet.ServletException;
 
-@AllArgsConstructor
-public class ExceptionLocationAlreadyExist extends AbstractExc {
-    public ExceptionLocationAlreadyExist(String s) {
-        super();
+public class ExceptionLocationAlreadyExist extends ServletException {
+    public ExceptionLocationAlreadyExist(String message) {
+        super(message);
     }
 }

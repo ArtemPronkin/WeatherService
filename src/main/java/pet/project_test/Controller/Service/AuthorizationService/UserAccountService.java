@@ -4,9 +4,9 @@ import com.password4j.Password;
 import jakarta.persistence.PersistenceException;
 import jakarta.servlet.http.HttpServletRequest;
 import pet.project_test.Controller.Exception.ExceptionAccess;
-import pet.project_test.Controller.Exception.IncorrectPassword;
-import pet.project_test.Controller.Exception.UserAlreadyExistsException;
-import pet.project_test.Controller.Exception.UserNotFound;
+import pet.project_test.Controller.Exception.ExceptionIncorrectPassword;
+import pet.project_test.Controller.Exception.ExceptionUserAlreadyExistsException;
+import pet.project_test.Controller.Exception.ExceptionUserNotFound;
 import pet.project_test.Entity.Session.Session;
 import pet.project_test.Entity.Session.SessionDAO;
 import pet.project_test.Entity.User.User;
@@ -36,25 +36,25 @@ public class UserAccountService {
         userDAO.update(user);
     }
 
-    public User registrationNewUser(String login, String password) throws UserAlreadyExistsException {
+    public User registrationNewUser(String login, String password) throws ExceptionUserAlreadyExistsException {
         var passwordBcrypt = Password.hash(password).withBcrypt().getResult();
         User user = new User(login, passwordBcrypt);
         try {
             userDAO.save(user);
         } catch (PersistenceException e) {
-            throw new UserAlreadyExistsException("User already exist");
+            throw new ExceptionUserAlreadyExistsException("User already exist");
         }
         return user;
     }
 
-    public User login(String login, String password) throws UserNotFound, IncorrectPassword {
+    public User login(String login, String password) throws ExceptionUserNotFound, ExceptionIncorrectPassword {
         var user = userDAO.findByLogin(login);
         if (user.isEmpty()) {
-            throw new UserNotFound("User is not registration");
+            throw new ExceptionUserNotFound("User is not registration");
         }
         var check = Password.check(password, user.get().getPassword()).withBcrypt();
         if (!check) {
-            throw new IncorrectPassword("Incorrect password");
+            throw new ExceptionIncorrectPassword("Incorrect password");
         }
         return user.get();
     }

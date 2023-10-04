@@ -1,10 +1,9 @@
 package pet.project_test.Controller.Exception;
 
-import lombok.AllArgsConstructor;
+import jakarta.servlet.ServletException;
 
-@AllArgsConstructor
-public class ExceptionEmptyListFound extends AbstractExc {
-    public ExceptionEmptyListFound(String s) {
-        super();
+public class ExceptionEmptyListFound extends ServletException {
+    public ExceptionEmptyListFound(String message) {
+        super(message);
     }
 }

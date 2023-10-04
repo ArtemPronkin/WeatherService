@@ -2,7 +2,6 @@ package pet.project_test.Controller.Servlets.Authorization;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.SneakyThrows;
@@ -17,9 +16,7 @@ public class OutProfileServlet extends BaseServlet {
     @SneakyThrows
     protected void get(HttpServletRequest request, HttpServletResponse response, User user) throws ServletException, IOException {
         sessionUserService.deleteSession(request);
-        Cookie emptyCookie = new Cookie("sessionId", null);
-        emptyCookie.setMaxAge(0);
-        response.addCookie(emptyCookie);
+        sessionUserService.setEmptyCookieSession(response);
         response.sendRedirect(request.getContextPath() + "/login");
     }
 

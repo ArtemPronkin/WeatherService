@@ -2,6 +2,8 @@ package pet.project_test.Entity.Session;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import pet.project_test.Entity.User.User;
 
 import java.time.LocalDateTime;
@@ -18,8 +20,9 @@ import java.util.UUID;
 public class Session {
     @Id
     private UUID id;
-    @ManyToOne (fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @ManyToOne(fetch = FetchType.EAGER)
     private User user;
     @Column(name = "expires_at")
     private LocalDateTime ExpiresAt;

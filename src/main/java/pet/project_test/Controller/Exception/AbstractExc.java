@@ -1,9 +1,7 @@
 package pet.project_test.Controller.Exception;
 
-public abstract class AbstractExc extends Exception {
+import jakarta.servlet.ServletException;
 
-    @Override
-    public String getMessage() {
-        return super.getMessage();
-    }
+public abstract class AbstractExc extends ServletException {
+ 
 }
