@@ -1,10 +1,8 @@
 package pet.project_test.Controller.Exception;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+public class ExceptionWIthMessage extends AbstractExc {
 
-@Data
-@AllArgsConstructor
-public class ExceptionWIthMessage extends Exception {
-    String messageException;
+    public ExceptionWIthMessage(String s) {
+        super();
+    }
 }

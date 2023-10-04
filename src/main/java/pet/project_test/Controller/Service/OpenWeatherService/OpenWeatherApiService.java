@@ -1,12 +1,12 @@
-package pet.project_test.Controller.OpenWeatherService;
+package pet.project_test.Controller.Service.OpenWeatherService;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import pet.project_test.Controller.OpenWeatherService.WeatherEntity.LocationSearchDTO;
-import pet.project_test.Controller.OpenWeatherService.WeatherEntity.OpenWeatherLocationDTO;
+import pet.project_test.Controller.Service.OpenWeatherService.WeatherEntity.LocationSearchDTO;
+import pet.project_test.Controller.Service.OpenWeatherService.WeatherEntity.OpenWeatherLocationDTO;
 import pet.project_test.Entity.Location.Location;
 
 import java.io.IOException;

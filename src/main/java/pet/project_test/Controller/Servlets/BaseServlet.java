@@ -9,21 +9,17 @@ import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.thymeleaf.ITemplateEngine;
 import org.thymeleaf.context.WebContext;
-import pet.project_test.Controller.Exception.ExceptionAccess;
-import pet.project_test.Controller.Exception.ExceptionEmptyListFound;
-import pet.project_test.Controller.Exception.ExceptionLocationAlreadyExist;
-import pet.project_test.Controller.Exception.ExceptionWIthMessage;
-import pet.project_test.Controller.OpenWeatherService.OpenWeatherApiService;
-import pet.project_test.Controller.Servlets.Authorization.LoginFilter;
+import pet.project_test.Controller.Exception.*;
+import pet.project_test.Controller.Service.AuthorizationService.SessionUserService;
+import pet.project_test.Controller.Service.AuthorizationService.UserAccountService;
+import pet.project_test.Controller.Service.OpenWeatherService.OpenWeatherApiService;
 import pet.project_test.Controller.Servlets.ListenerTemplateEngine.TemplateEngineUtil;
 import pet.project_test.Entity.Location.LocationDAO;
-import pet.project_test.Entity.Session.Session;
 import pet.project_test.Entity.Session.SessionDAO;
 import pet.project_test.Entity.User.User;
 import pet.project_test.Entity.User.UserDAO;
 
 import java.io.IOException;
-import java.util.Optional;
 
 @Slf4j
 
@@ -32,6 +28,8 @@ public abstract class BaseServlet extends HttpServlet {
     protected WebContext webContext;
 
     protected OpenWeatherApiService openWeatherApiService = new OpenWeatherApiService();
+    protected UserAccountService userAccountService = new UserAccountService();
+    protected SessionUserService sessionUserService = new SessionUserService();
     protected UserDAO userDAO = new UserDAO();
     protected SessionDAO sessionDAO = new SessionDAO();
     protected LocationDAO locationDAO = new LocationDAO();
@@ -49,6 +47,41 @@ public abstract class BaseServlet extends HttpServlet {
         webContext.setVariable("message", request.getParameter("message"));
         try {
             super.service(request, response);
+            forCatchExceptions();
+        } catch (ExceptionWIthMessage | UserAlreadyExistsException | UserNotFound | SessionNotFound |
+                 IncorrectPassword e) {
+            response.sendRedirect(request.getContextPath() + request.getServletPath() + "?message=" + e.getMessage());
+        } catch (ExceptionAccess e) {
+            response.sendRedirect(request.getContextPath() + "/login" + "?message=" + e.getMessage());
+        } catch (ExceptionEmptyListFound | ExceptionLocationAlreadyExist e) {
+            response.sendRedirect(request.getContextPath() + "/home" + "?message=" + e.getMessage());
+        }
+    }
+
+    @SneakyThrows
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        get(request, response, userAccountService.getUser(request));
+    }
+
+    @SneakyThrows
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        post(request, response, userAccountService.getUser(request));
+    }
+
+    protected void post(HttpServletRequest request, HttpServletResponse response, User user) throws ServletException, IOException {
+
+    }
+
+    protected void get(HttpServletRequest request, HttpServletResponse response, User user) throws ServletException, IOException {
+
+    }
+
+    private void forCatchExceptions() throws ExceptionWIthMessage, ExceptionAccess, ExceptionEmptyListFound, ExceptionLocationAlreadyExist, UserAlreadyExistsException, IncorrectPassword, UserNotFound, SessionNotFound {
+        if (false) {
             if (false) {
                 throw new ExceptionWIthMessage("");
             }
@@ -61,40 +94,18 @@ public abstract class BaseServlet extends HttpServlet {
             if (false) {
                 throw new ExceptionLocationAlreadyExist("");
             }
-        } catch (ExceptionWIthMessage e) {
-            response.sendRedirect(request.getContextPath() + request.getServletPath() + "?message=" + e.getMessageException());
-        } catch (ExceptionAccess e) {
-            response.sendRedirect(request.getContextPath() + "/login" + "?message=" + e.getMessageException());
-        } catch (ExceptionEmptyListFound e) {
-            response.sendRedirect(request.getContextPath() + "/home" + "?message=" + e.getMessageException());
-        } catch (ExceptionLocationAlreadyExist e) {
-            response.sendRedirect(request.getContextPath() + "/home" + "?message=" + e.getMessageException());
+            if (false) {
+                throw new UserAlreadyExistsException("");
+            }
+            if (false) {
+                throw new IncorrectPassword("");
+            }
+            if (false) {
+                throw new SessionNotFound("");
+            }
+            if (false) {
+                throw new UserNotFound("");
+            }
         }
-    }
-
-    @SneakyThrows
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        var uuid = LoginFilter.getSessionUUIDFromRequest(request).orElseThrow(() -> new ExceptionAccess("Access closed"));
-        Optional<Session> optionalSession = sessionDAO.getById(uuid);
-        var user = optionalSession.orElseThrow(() -> new ExceptionAccess("Access closed")).getUser();
-        get(request, response, user);
-    }
-
-    @SneakyThrows
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        var uuid = LoginFilter.getSessionUUIDFromRequest(request).orElseThrow(() -> new ExceptionAccess("Access closed"));
-        Optional<Session> optionalSession = sessionDAO.getById(uuid);
-        var user = optionalSession.orElseThrow(() -> new ExceptionAccess("Access closed")).getUser();
-        post(request, response, user);
-    }
-
-    protected void post(HttpServletRequest request, HttpServletResponse response, User user) throws ServletException, IOException {
-
-    }
-
-    protected void get(HttpServletRequest request, HttpServletResponse response, User user) throws ServletException, IOException {
-
     }
 }

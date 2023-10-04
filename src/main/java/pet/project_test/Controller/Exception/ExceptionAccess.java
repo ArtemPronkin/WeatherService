@@ -1,10 +1,10 @@
 package pet.project_test.Controller.Exception;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 
 @AllArgsConstructor
-@Data
-public class ExceptionAccess extends Throwable {
-    private String messageException;
+public class ExceptionAccess extends AbstractExc {
+    public ExceptionAccess(String accessClosed) {
+        super();
+    }
 }

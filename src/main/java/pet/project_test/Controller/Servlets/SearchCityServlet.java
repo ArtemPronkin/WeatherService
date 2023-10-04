@@ -6,7 +6,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.SneakyThrows;
 import pet.project_test.Controller.Exception.ExceptionEmptyListFound;
 import pet.project_test.Controller.Exception.ExceptionLocationAlreadyExist;
-import pet.project_test.Controller.OpenWeatherService.WeatherEntity.LocationSearchDTO;
+import pet.project_test.Controller.Service.OpenWeatherService.WeatherEntity.LocationSearchDTO;
 import pet.project_test.Entity.Location.Location;
 import pet.project_test.Entity.User.User;
 

@@ -5,7 +5,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import pet.project_test.Controller.OpenWeatherService.WeatherEntity.OpenWeatherLocationDTO;
+import pet.project_test.Controller.Service.OpenWeatherService.WeatherEntity.OpenWeatherLocationDTO;
 import pet.project_test.Entity.User.User;
 
 import java.io.IOException;
