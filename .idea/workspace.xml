@@ -9,39 +9,96 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ba2399d-e8d8-4360-9b5d-acd977df8f12" name="Changes" comment="Вынес обработку Эксепшенов в базовый сервлет, выровнял сетку в шаблонах">
-      <change afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionIncorrectPassword.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionSessionNotFound.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionUserAlreadyExistsException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionUserNotFound.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/Authorization/DeleteUserServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/Authorization/EditPasswordServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/templates/delete.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/templates/editPassword.html" afterDir="false" />
+    <list default="true" id="1ba2399d-e8d8-4360-9b5d-acd977df8f12" name="Changes" comment="Реализовал удаление и смену пароля, переделал эксепшены, написал тесты к новому функционалу.">
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionAPI/ExceptionOpenWeatherError.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionAPI/ExceptionRequestLimitExceeded.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/AbstractExc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/AbstractExc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionEmptyListFound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionEmptyListFound.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionLocationAlreadyExist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionLocationAlreadyExist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionWIthMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionWIthMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/IncorrectPassword.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/SessionNotFound.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/UserAlreadyExistsException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/UserNotFound.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/classes/META-INF/beans.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/classes/META-INF/persistence.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/classes/hibernate.cfg.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/classes/hibernateH2.cfg.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/classes/log4j2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/classes/pet/project/Controller/Listener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/classes/pet/project/Controller/Servlets/Authorization/LoginServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/classes/pet/project/Controller/Servlets/Authorization/OutProfileServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/classes/pet/project/Controller/Servlets/Authorization/RegistrationServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/classes/pet/project/Controller/Servlets/BaseServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/classes/pet/project/Controller/Servlets/HomeServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/classes/pet/project/Controller/Servlets/SearchCityServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/classes/pet/project/Controller/TemplateEngineUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/classes/pet/project/Entity/Location.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/classes/pet/project/Entity/LocationDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/classes/pet/project/Entity/Session.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/classes/pet/project/Entity/SessionDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/classes/pet/project/Entity/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/classes/pet/project/Entity/UserDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/classes/pet/project/Exception/ExceptionUserAlreadyExists.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/classes/pet/project/HelloServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/classes/pet/project/SessionFactoryUtil$SingletonHolder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/classes/pet/project/SessionFactoryUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/lib/antlr4-runtime-4.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/lib/attoparser-2.0.6.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/lib/byte-buddy-1.12.9.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/lib/classmate-1.5.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/lib/h2-2.2.220.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/lib/hibernate-commons-annotations-6.0.1.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/lib/hibernate-core-6.0.2.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/lib/istack-commons-runtime-4.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/lib/jakarta.activation-2.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/lib/jakarta.inject-api-2.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/lib/jakarta.persistence-api-3.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/lib/jakarta.transaction-api-2.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/lib/jakarta.xml.bind-api-3.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/lib/jandex-2.4.2.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/lib/javassist-3.29.0-GA.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/lib/jaxb-core-3.0.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/lib/jaxb-runtime-3.0.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/lib/jboss-logging-3.4.3.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/lib/log4j-api-2.20.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/lib/log4j-core-2.20.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/lib/log4j-slf4j2-impl-2.20.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/lib/mysql-connector-j-8.0.31.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/lib/ognl-3.3.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/lib/protobuf-java-3.19.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/lib/slf4j-api-2.0.6.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/lib/thymeleaf-3.1.1.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/lib/txw2-3.0.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/lib/unbescape-1.1.6.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/templates/flooter.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/templates/header.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/templates/home.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/templates/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/templates/registration.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/pp5_war_exploded/templates/search.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/AbstractExc.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionAuthorization/ExceptionAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionEmptyListFound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionAPI/ExceptionEmptyListFound.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionIncorrectPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionAuthorization/ExceptionIncorrectPassword.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionLocationAlreadyExist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionAPI/ExceptionLocationAlreadyExist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionSessionNotFound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionAuthorization/ExceptionSessionNotFound.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionUserAlreadyExistsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionAuthorization/ExceptionUserAlreadyExistsException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionUserNotFound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionAuthorization/ExceptionUserNotFound.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionWIthMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Exception/ExceptionAuthorization/ExceptionWIthMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Service/AuthorizationService/SessionUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Service/AuthorizationService/SessionUserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Service/AuthorizationService/UserAccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Service/AuthorizationService/UserAccountService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Service/OpenWeatherService/OpenWeatherApiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Service/OpenWeatherService/OpenWeatherApiService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Service/OpenWeatherService/WeatherEntity/OpenWeatherLocationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Service/OpenWeatherService/WeatherEntity/OpenWeatherLocationDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/Authorization/DeleteUserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/Authorization/DeleteUserServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/Authorization/EditPasswordServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/Authorization/EditPasswordServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/Authorization/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/Authorization/LoginServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/Authorization/OutProfileServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/Authorization/OutProfileServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/Authorization/RegistrationServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/Authorization/RegistrationServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/BaseServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/BaseServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/EntityDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/EntityDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/Location/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/Location/Location.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/Session/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/Session/Session.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/User/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/User/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/templates/header-component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/templates/header-component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/templates/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/templates/registration.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/SearchCityServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/SearchCityServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/OpenWeatherApiTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/OpenWeatherApiTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/SessionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/SessionTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,8 +110,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Dockerfile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -88,6 +146,10 @@
   <component name="OptimizeOnSaveOptions">
     <option name="myRunOnSave" value="true" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+    <option name="showPreview" value="true" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -112,16 +174,19 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.5827586&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;DatabaseDriversLRU&quot;: [
       &quot;cde082e0-d4af-46a7-b99f-301c0b002ce5&quot;,
       &quot;mysql&quot;
+    ],
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;yaml&quot;
     ]
   }
 }</component>
@@ -135,15 +200,9 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 10.1.13">
+  <component name="RunManager" selected="Docker.docker-compose.yaml: Compose Deployment">
     <configuration name="OpenWeatherApiTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pp5" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value=".*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="OpenWeatherApiTest" />
       <option name="TEST_OBJECT" value="class" />
@@ -151,40 +210,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SessionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="OpenWeatherApiTest.testWeatherError" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pp5" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="SessionTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SessionTest.deleteExpiredSessionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pp5" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="SessionTest" />
-      <option name="METHOD_NAME" value="deleteExpiredSessionTest" />
+      <option name="MAIN_CLASS_NAME" value="OpenWeatherApiTest" />
+      <option name="METHOD_NAME" value="testWeatherError" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SessionTest.deleteUserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="OpenWeatherApiTest.testWeatherError429" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pp5" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="SessionTest" />
-      <option name="METHOD_NAME" value="deleteUserTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SessionTest.uniqueUserThrowTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pp5" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="SessionTest" />
-      <option name="METHOD_NAME" value="uniqueUserThrowTest" />
+      <option name="MAIN_CLASS_NAME" value="OpenWeatherApiTest" />
+      <option name="METHOD_NAME" value="testWeatherError429" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -279,21 +319,49 @@
         </option>
       </method>
     </configuration>
+    <configuration name="Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="sourceFilePath" value="Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
+      <deployment type="dockerfile">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yaml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="docker-compose.yaml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <list>
-      <item itemvalue="JUnit.SessionTest.deleteUserTest" />
-      <item itemvalue="JUnit.SessionTest.deleteExpiredSessionTest" />
+      <item itemvalue="Docker.Dockerfile" />
+      <item itemvalue="Docker.docker-compose.yaml: Compose Deployment" />
       <item itemvalue="JUnit.OpenWeatherApiTest" />
-      <item itemvalue="JUnit.SessionTest" />
-      <item itemvalue="JUnit.SessionTest.uniqueUserThrowTest" />
+      <item itemvalue="JUnit.OpenWeatherApiTest.testWeatherError" />
+      <item itemvalue="JUnit.OpenWeatherApiTest.testWeatherError429" />
       <item itemvalue="Tomcat Server.Tomcat 10.1.13" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.SessionTest.deleteUserTest" />
-        <item itemvalue="JUnit.SessionTest" />
-        <item itemvalue="JUnit.SessionTest.deleteExpiredSessionTest" />
+        <item itemvalue="Docker.docker-compose.yaml: Compose Deployment" />
+        <item itemvalue="Docker.Dockerfile" />
+        <item itemvalue="JUnit.OpenWeatherApiTest.testWeatherError429" />
         <item itemvalue="JUnit.OpenWeatherApiTest" />
-        <item itemvalue="JUnit.SessionTest.uniqueUserThrowTest" />
+        <item itemvalue="JUnit.OpenWeatherApiTest.testWeatherError" />
       </list>
     </recent_temporary>
   </component>
@@ -324,7 +392,12 @@
       <workItem from="1696275683949" duration="5637000" />
       <workItem from="1696290069281" duration="4112000" />
       <workItem from="1696296283666" duration="4176000" />
-      <workItem from="1696443827817" duration="8540000" />
+      <workItem from="1696443827817" duration="8948000" />
+      <workItem from="1696453597613" duration="924000" />
+      <workItem from="1696455781585" duration="7084000" />
+      <workItem from="1696598221796" duration="3704000" />
+      <workItem from="1696601955554" duration="2840000" />
+      <workItem from="1696604803965" duration="1264000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />
@@ -414,7 +487,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696299434182</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Реализовал удаление и смену пароля, переделал эксепшены, написал тесты к новому функционалу.">
+      <option name="closed" value="true" />
+      <created>1696452547994</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1696452547994</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -443,19 +524,19 @@
     <MESSAGE value="Переписал получение токена через System.getenv()" />
     <MESSAGE value="эксперементики" />
     <MESSAGE value="Вынес обработку Эксепшенов в базовый сервлет, выровнял сетку в шаблонах" />
-    <option name="LAST_COMMIT_MESSAGE" value="Вынес обработку Эксепшенов в базовый сервлет, выровнял сетку в шаблонах" />
+    <MESSAGE value="Реализовал удаление и смену пароля, переделал эксепшены, написал тесты к новому функционалу." />
+    <option name="LAST_COMMIT_MESSAGE" value="Реализовал удаление и смену пароля, переделал эксепшены, написал тесты к новому функционалу." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/OpenWeatherApiTest.java</url>
-          <line>229</line>
+          <line>218</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/SessionTest.java</url>
-          <line>108</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>

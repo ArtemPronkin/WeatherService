@@ -1,6 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import pet.project_test.Controller.Exception.ExceptionAPI.ExceptionOpenWeatherError;
+import pet.project_test.Controller.Exception.ExceptionAPI.ExceptionRequestLimitExceeded;
 import pet.project_test.Controller.Service.OpenWeatherService.OpenWeatherApiService;
 import pet.project_test.Controller.Service.OpenWeatherService.WeatherEntity.LocationSearchDTO;
 import pet.project_test.Entity.Location.Location;
@@ -190,43 +192,30 @@ public class OpenWeatherApiTest {
                     "    \"name\": \"San Francisco\",\n" +
                     "    \"cod\": 200\n" +
                     "}";
+    String openWeatherError429 = "{\"cod\" : 429}";
+    String openWeatherError = "{\"cod\" : 500}";
 
-    @Test
-    public void LocationManytoOneTest() {
-        String login = "asd@asd";
-        User user = new User(login, "asd@asd");
-        userDAO.save(user);
-        var location = new Location(user, "RZN", new BigDecimal("0.2222"), new BigDecimal("0.22222"));
-        locationDAO.save(location);
-        user = userDAO.findByLogin(login).get();
-        Assertions.assertEquals(location.getLatitide(), location.getLatitide());
-        Assertions.assertEquals(location.getLongitide(), location.getLongitide());
-        Assertions.assertEquals(location.getName(), location.getName());
-        locationDAO.deleteForId(location.getId());
-
-    }
-
-    private HttpClient createMockHttpClientforFoundCity() throws IOException, InterruptedException {
+    private HttpClient createMockHttpClientforFoundCity(String answer) throws IOException, InterruptedException {
         HttpClient httpClient = mock(HttpClient.class);
 
         URI uri = openWeatherApiService.buildUriForGeocodingRequest("Simple");
         HttpRequest request = OpenWeatherApiService.buildRequest(uri);
 
         HttpResponse<String> mockResponse = Mockito.mock(HttpResponse.class);
-        when(mockResponse.body()).thenReturn(simpeCity);
+        when(mockResponse.body()).thenReturn(answer);
 
         when(httpClient.send(request, HttpResponse.BodyHandlers.ofString())).thenReturn(mockResponse);
         return httpClient;
     }
 
-    private HttpClient createMockHttpClientforFoundWeather() throws IOException, InterruptedException {
+    private HttpClient createMockHttpClientforFoundWeather(String answer) throws IOException, InterruptedException {
         HttpClient httpClient = mock(HttpClient.class);
 
         URI uri = openWeatherApiService.buildUriForWeatherForLocationRequest(new BigDecimal("0"), new BigDecimal("0"));
         HttpRequest request = OpenWeatherApiService.buildRequest(uri);
 
         HttpResponse<String> mockResponse = Mockito.mock(HttpResponse.class);
-        when(mockResponse.body()).thenReturn(simpleWeather);
+        when(mockResponse.body()).thenReturn(answer);
 
         when(httpClient.send(request, HttpResponse.BodyHandlers.ofString())).thenReturn(mockResponse);
         return httpClient;
@@ -234,17 +223,35 @@ public class OpenWeatherApiTest {
 
     @Test
     public void testLocationFound() throws IOException, InterruptedException {
-        openWeatherApiService = new OpenWeatherApiService(createMockHttpClientforFoundCity());
+        openWeatherApiService = new OpenWeatherApiService(createMockHttpClientforFoundCity(simpeCity));
         List<LocationSearchDTO> location = openWeatherApiService.geocodingByName("Simple");
         Assertions.assertEquals("Ryazan", location.get(0).getName());
     }
 
     @Test
-    public void testWeatherFound() throws IOException, InterruptedException {
-        openWeatherApiService = new OpenWeatherApiService(createMockHttpClientforFoundWeather());
+    public void testWeatherFound() throws IOException, InterruptedException, ExceptionRequestLimitExceeded, ExceptionOpenWeatherError {
+        openWeatherApiService = new OpenWeatherApiService(createMockHttpClientforFoundWeather(simpleWeather));
         var weather = openWeatherApiService.weatherForLocation(
                 (new Location(new User("pass", "pass"), "Mock", new BigDecimal("0"), new BigDecimal("0"))));
         Assertions.assertEquals(13.5, weather.getMain().getTemp());
         Assertions.assertEquals("San Francisco", weather.getName());
+        Assertions.assertEquals(200, weather.getCod());
+    }
+
+    @Test
+    public void testWeatherError429() throws IOException, InterruptedException, ExceptionRequestLimitExceeded, ExceptionOpenWeatherError {
+        openWeatherApiService = new OpenWeatherApiService(createMockHttpClientforFoundWeather(openWeatherError429));
+        Assertions.assertThrows(ExceptionRequestLimitExceeded.class, () ->
+                openWeatherApiService.weatherForLocation(
+                        (new Location(new User("pass", "pass"), "Mock", new BigDecimal("0"), new BigDecimal("0")))));
+    }
+
+    @Test
+    public void testWeatherError() throws IOException, InterruptedException, ExceptionRequestLimitExceeded, ExceptionOpenWeatherError {
+        openWeatherApiService = new OpenWeatherApiService(createMockHttpClientforFoundWeather(openWeatherError));
+        Assertions.assertThrows(ExceptionOpenWeatherError.class, () ->
+                openWeatherApiService.weatherForLocation(
+                        (new Location(new User("pass", "pass"), "Mock", new BigDecimal("0"), new BigDecimal("0")))));
+
     }
 }

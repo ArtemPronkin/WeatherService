@@ -14,4 +14,5 @@ public class OpenWeatherLocationDTO {
     Wind wind;
     Integer id;
     List<Weather> weather;
+    Integer cod;
 }

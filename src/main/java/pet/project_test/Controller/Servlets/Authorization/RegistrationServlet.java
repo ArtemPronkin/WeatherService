@@ -5,7 +5,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import pet.project_test.Controller.Exception.ExceptionWIthMessage;
+import pet.project_test.Controller.Exception.ExceptionAuthorization.ExceptionWIthMessage;
 import pet.project_test.Controller.Servlets.BaseServlet;
 import pet.project_test.Controller.Validator;
 

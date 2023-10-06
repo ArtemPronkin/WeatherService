@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  app:
+    build: ./
+    container_name: java-app
+    ports:
+      - 8080:8080
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      - OpenWeatherApiServiceId
+  mysql:
+    image: mysql:8
+    container_name: java-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=1917
+      - MYSQL_DATABASE=test
+    healthcheck:
+      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
+      timeout: 20s
+      retries: 10
+
+
+
+
+
+
+

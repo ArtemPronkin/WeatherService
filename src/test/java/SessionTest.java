@@ -3,9 +3,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import pet.project_test.Controller.Exception.ExceptionIncorrectPassword;
-import pet.project_test.Controller.Exception.ExceptionUserAlreadyExistsException;
-import pet.project_test.Controller.Exception.ExceptionUserNotFound;
+import pet.project_test.Controller.Exception.ExceptionAuthorization.ExceptionIncorrectPassword;
+import pet.project_test.Controller.Exception.ExceptionAuthorization.ExceptionUserAlreadyExistsException;
+import pet.project_test.Controller.Exception.ExceptionAuthorization.ExceptionUserNotFound;
 import pet.project_test.Controller.Service.AuthorizationService.SessionUserService;
 import pet.project_test.Controller.Service.AuthorizationService.UserAccountService;
 import pet.project_test.Entity.Location.Location;
@@ -103,6 +103,4 @@ public class SessionTest {
         var user5 = userAccountService.registrationNewUser(login, password);
         Assertions.assertTrue(user5.getLocationList().isEmpty());
     }
-
-
 }

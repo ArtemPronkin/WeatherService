@@ -9,7 +9,11 @@ import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.thymeleaf.ITemplateEngine;
 import org.thymeleaf.context.WebContext;
-import pet.project_test.Controller.Exception.*;
+import pet.project_test.Controller.Exception.ExceptionAPI.ExceptionEmptyListFound;
+import pet.project_test.Controller.Exception.ExceptionAPI.ExceptionLocationAlreadyExist;
+import pet.project_test.Controller.Exception.ExceptionAPI.ExceptionOpenWeatherError;
+import pet.project_test.Controller.Exception.ExceptionAPI.ExceptionRequestLimitExceeded;
+import pet.project_test.Controller.Exception.ExceptionAuthorization.*;
 import pet.project_test.Controller.Service.AuthorizationService.SessionUserService;
 import pet.project_test.Controller.Service.AuthorizationService.UserAccountService;
 import pet.project_test.Controller.Service.OpenWeatherService.OpenWeatherApiService;
@@ -44,7 +48,7 @@ public abstract class BaseServlet extends HttpServlet {
         try {
             super.service(request, response);
         } catch (ExceptionWIthMessage | ExceptionUserAlreadyExistsException | ExceptionUserNotFound |
-                 ExceptionSessionNotFound |
+                 ExceptionSessionNotFound | ExceptionRequestLimitExceeded | ExceptionOpenWeatherError |
                  ExceptionIncorrectPassword e) {
             response.sendRedirect(request.getContextPath() + request.getServletPath() + "?message=" + e.getMessage());
         } catch (ExceptionAccess e) {

@@ -5,6 +5,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import pet.project_test.Controller.Exception.ExceptionAPI.ExceptionOpenWeatherError;
+import pet.project_test.Controller.Exception.ExceptionAPI.ExceptionRequestLimitExceeded;
 import pet.project_test.Controller.Service.OpenWeatherService.WeatherEntity.LocationSearchDTO;
 import pet.project_test.Controller.Service.OpenWeatherService.WeatherEntity.OpenWeatherLocationDTO;
 import pet.project_test.Entity.Location.Location;
@@ -38,18 +40,27 @@ public class OpenWeatherApiService {
                 .build();
     }
 
-    public OpenWeatherLocationDTO weatherForLocation(Location location) {
+    public OpenWeatherLocationDTO weatherForLocation(Location location) throws ExceptionRequestLimitExceeded, ExceptionOpenWeatherError {
         var uri = buildUriForWeatherForLocationRequest(location.getLatitide(), location.getLongitide());
         log.info(uri.toString());
         HttpRequest httpRequest = buildRequest(uri);
         try {
             HttpResponse<String> httpResponse = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
-            return objectMapper.readValue(httpResponse.body(), new TypeReference<OpenWeatherLocationDTO>() {
+
+            OpenWeatherLocationDTO dto = objectMapper.readValue(httpResponse.body(), new TypeReference<OpenWeatherLocationDTO>() {
             });
+            if (dto.getCod() == 429) {
+                throw new ExceptionRequestLimitExceeded("Request limit exceeded");
+            }
+            if (dto.getCod() != 200) {
+                throw new ExceptionOpenWeatherError("OpenWeather server Error");
+            }
+            return dto;
         } catch (IOException | InterruptedException e) {
             log.warn(e.getMessage());
             throw new RuntimeException(e);
         }
+
     }
 
     public List<LocationSearchDTO> geocodingByName(String name) {
@@ -82,7 +93,7 @@ public class OpenWeatherApiService {
                 + "&appid=" + APP_ID);
     }
 
-    public List<OpenWeatherLocationDTO> getListWeatherByListLocation(List<Location> list) {
+    public List<OpenWeatherLocationDTO> getListWeatherByListLocation(List<Location> list) throws ExceptionRequestLimitExceeded, ExceptionOpenWeatherError {
         List<OpenWeatherLocationDTO> result = new ArrayList<>();
         for (Location loc :
                 list) {
