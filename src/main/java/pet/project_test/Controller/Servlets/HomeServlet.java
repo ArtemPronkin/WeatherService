@@ -26,7 +26,8 @@ public class HomeServlet extends BaseServlet {
     @Override
     protected void post(HttpServletRequest request, HttpServletResponse response, User user) throws ServletException, IOException {
         String id = request.getParameter("id");
-        locationDAO.deleteForId(Integer.parseInt(id));
+        var location = user.getLocationList().get(Integer.parseInt(id));
+        locationDAO.delete(location);
         response.sendRedirect(request.getContextPath() + request.getServletPath());
     }
 }

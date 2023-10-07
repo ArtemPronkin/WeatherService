@@ -14,7 +14,7 @@ services:
       - OpenWeatherApiServiceId
   mysql:
     image: mysql:8
-    container_name: java-mysql
+    conta iner_name: java-mysql
     environment:
       - MYSQL_ROOT_PASSWORD=1917
       - MYSQL_DATABASE=test
