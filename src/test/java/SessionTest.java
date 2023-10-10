@@ -103,4 +103,18 @@ public class SessionTest {
         var user5 = userAccountService.registrationNewUser(login, password);
         Assertions.assertTrue(user5.getLocationList().isEmpty());
     }
+
+    @Test
+    public void deleteLocationTest() throws ExceptionUserAlreadyExistsException, ExceptionIncorrectPassword, ExceptionUserNotFound {
+        var login = "user";
+        var password = login;
+        var user6 = userAccountService.registrationNewUser(login, password);
+        var lat = new BigDecimal(10);
+        var lot = new BigDecimal(20);
+        var loc = new Location(user1, lat, lot);
+        locationDAO.save(loc);
+        locationDAO.deleteByUser(user1, lat, lot);
+        user6 = userAccountService.login(login, password);
+        Assertions.assertTrue(user6.getLocationList().isEmpty());
+    }
 }

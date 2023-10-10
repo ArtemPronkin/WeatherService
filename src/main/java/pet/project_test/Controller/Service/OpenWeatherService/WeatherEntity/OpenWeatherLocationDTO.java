@@ -3,6 +3,7 @@ package pet.project_test.Controller.Service.OpenWeatherService.WeatherEntity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Data
@@ -15,4 +16,6 @@ public class OpenWeatherLocationDTO {
     Integer id;
     List<Weather> weather;
     Integer cod;
+    BigDecimal latitide;
+    BigDecimal longitide;
 }

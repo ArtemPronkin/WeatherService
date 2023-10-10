@@ -10,12 +10,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1ba2399d-e8d8-4360-9b5d-acd977df8f12" name="Changes" comment="Настроил доккер">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Service/OpenWeatherService/OpenWeatherApiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Service/OpenWeatherService/OpenWeatherApiService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Service/OpenWeatherService/WeatherEntity/OpenWeatherLocationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Service/OpenWeatherService/WeatherEntity/OpenWeatherLocationDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/HomeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Servlets/HomeServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/Location/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/Location/Location.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/Location/LocationDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Entity/Location/LocationDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/SessionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/SessionTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,20 +121,21 @@
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 10.1.13">
-    <configuration name="OpenWeatherApiTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pp5" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="OpenWeatherApiTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="OpenWeatherApiTest.testWeatherError429" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pp5" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="OpenWeatherApiTest" />
       <option name="METHOD_NAME" value="testWeatherError429" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SessionTest.deleteLocationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pp5" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SessionTest" />
+      <option name="METHOD_NAME" value="deleteLocationTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -265,17 +270,17 @@
       <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
       <item itemvalue="Docker.Dockerfile" />
       <item itemvalue="Docker.docker-compose.yaml: Compose Deployment" />
-      <item itemvalue="JUnit.OpenWeatherApiTest" />
+      <item itemvalue="JUnit.SessionTest.deleteLocationTest" />
       <item itemvalue="JUnit.OpenWeatherApiTest.testWeatherError429" />
       <item itemvalue="Tomcat Server.Tomcat 10.1.13" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SessionTest.deleteLocationTest" />
         <item itemvalue="Docker.Dockerfile" />
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yaml: Compose Deployment" />
         <item itemvalue="JUnit.OpenWeatherApiTest.testWeatherError429" />
-        <item itemvalue="JUnit.OpenWeatherApiTest" />
       </list>
     </recent_temporary>
   </component>
@@ -313,6 +318,8 @@
       <workItem from="1696601955554" duration="2840000" />
       <workItem from="1696604803965" duration="5725000" />
       <workItem from="1696715075451" duration="347000" />
+      <workItem from="1696947998803" duration="348000" />
+      <workItem from="1696948454083" duration="1668000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />
@@ -477,8 +484,9 @@
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/SessionTest.java</url>
-          <option name="timeStamp" value="19" />
+          <url>file://$PROJECT_DIR$/src/main/java/pet/project_test/Entity/Location/LocationDAO.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

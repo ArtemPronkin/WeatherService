@@ -100,6 +100,8 @@ public class OpenWeatherApiService {
             var dto = (weatherForLocation(loc));
             log.info(dto.getName());
             dto.setId(loc.getId());
+            dto.setLatitide(loc.getLatitide());
+            dto.setLongitide(loc.getLongitide());
             result.add(dto);
         }
         return result;

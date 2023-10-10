@@ -38,4 +38,10 @@ public class Location {
         this.longitide = longitide;
         this.user = user;
     }
+
+    public Location(User user, BigDecimal latitide, BigDecimal longitide) {
+        this.latitide = latitide;
+        this.longitide = longitide;
+        this.user = user;
+    }
 }

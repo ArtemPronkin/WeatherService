@@ -4,17 +4,22 @@ import lombok.extern.slf4j.Slf4j;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import pet.project_test.Entity.EntityDAO;
+import pet.project_test.Entity.User.User;
 import pet.project_test.SessionFactoryUtil;
+
+import java.math.BigDecimal;
+
 @Slf4j
 public class LocationDAO extends EntityDAO<Location> {
-
-    public void deleteForId(Integer id) {
+    public void deleteByUser(User user, BigDecimal lat, BigDecimal lon) {
         Transaction transaction = null;
         Session session = SessionFactoryUtil.getSessionFactory().getCurrentSession();
         try {
             transaction = session.beginTransaction();
-            session.createQuery("delete from Location where id = :id")
-                    .setParameter("id", id)
+            session.createQuery("delete from Location where user=:user AND latitide=:lat AND longitide=:lon")
+                    .setParameter("lat", lat)
+                    .setParameter("lon", lon)
+                    .setParameter("user", user)
                     .executeUpdate();
             transaction.commit();
         } catch (RuntimeException e) {
@@ -28,5 +33,4 @@ public class LocationDAO extends EntityDAO<Location> {
             session.close();
         }
     }
-
 }

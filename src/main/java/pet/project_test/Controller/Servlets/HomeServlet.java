@@ -9,6 +9,7 @@ import pet.project_test.Controller.Service.OpenWeatherService.WeatherEntity.Open
 import pet.project_test.Entity.User.User;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.List;
 
 @WebServlet(name = "HomeServlet", value = "/home")
@@ -25,9 +26,9 @@ public class HomeServlet extends BaseServlet {
 
     @Override
     protected void post(HttpServletRequest request, HttpServletResponse response, User user) throws ServletException, IOException {
-        String id = request.getParameter("id");
-        var location = user.getLocationList().get(Integer.parseInt(id));
-        locationDAO.delete(location);
+        String lon = request.getParameter("lon");
+        String lat = request.getParameter("lat");
+        locationDAO.deleteByUser(user, new BigDecimal(lat), new BigDecimal(lon));
         response.sendRedirect(request.getContextPath() + request.getServletPath());
     }
 }
