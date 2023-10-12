@@ -55,6 +55,9 @@ public class OpenWeatherApiService {
             if (dto.getCod() != 200) {
                 throw new ExceptionOpenWeatherError("OpenWeather server Error");
             }
+            dto.setId(location.getId());
+            dto.setLatitide(location.getLatitide());
+            dto.setLongitide(location.getLongitide());
             return dto;
         } catch (IOException | InterruptedException e) {
             log.warn(e.getMessage());
@@ -99,9 +102,6 @@ public class OpenWeatherApiService {
                 list) {
             var dto = (weatherForLocation(loc));
             log.info(dto.getName());
-            dto.setId(loc.getId());
-            dto.setLatitide(loc.getLatitide());
-            dto.setLongitide(loc.getLongitide());
             result.add(dto);
         }
         return result;
