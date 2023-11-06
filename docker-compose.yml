@@ -11,10 +11,10 @@ services:
       mysql:
         condition: service_healthy
     environment:
-      - OpenWeatherApiServiceId
+      OpenWeatherApiServiceId: 4c31277b10243af9ff3161584e3a4a5c
   mysql:
     image: mysql:8
-    conta iner_name: java-mysql
+    container_name: java-mysql
     environment:
       - MYSQL_ROOT_PASSWORD=1917
       - MYSQL_DATABASE=test
