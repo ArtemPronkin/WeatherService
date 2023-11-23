@@ -1,15 +1,15 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import pet.project_test.Controller.Exception.ExceptionAPI.ExceptionOpenWeatherError;
-import pet.project_test.Controller.Exception.ExceptionAPI.ExceptionRequestLimitExceeded;
-import pet.project_test.Controller.Service.OpenWeatherService.OpenWeatherApiService;
-import pet.project_test.Controller.Service.OpenWeatherService.WeatherEntity.LocationSearchDTO;
-import pet.project_test.Entity.Location.Location;
-import pet.project_test.Entity.Location.LocationDAO;
-import pet.project_test.Entity.Session.SessionDAO;
-import pet.project_test.Entity.User.User;
-import pet.project_test.Entity.User.UserDAO;
+import pet.project_test.controller.Exception.ExceptionAPI.ExceptionOpenWeatherError;
+import pet.project_test.controller.Exception.ExceptionAPI.ExceptionRequestLimitExceeded;
+import pet.project_test.controller.Service.OpenWeatherService.OpenWeatherApiService;
+import pet.project_test.controller.Service.OpenWeatherService.WeatherEntity.LocationSearchDTO;
+import pet.project_test.entity.location.Location;
+import pet.project_test.entity.location.LocationDAO;
+import pet.project_test.entity.session.SessionDAO;
+import pet.project_test.entity.user.User;
+import pet.project_test.entity.user.UserDAO;
 
 import java.io.IOException;
 import java.math.BigDecimal;

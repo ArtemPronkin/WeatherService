@@ -11,10 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1ba2399d-e8d8-4360-9b5d-acd977df8f12" name="Changes" comment="Перенес сборку дто в общий метод">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Service/AuthorizationService/UserAccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Controller/Service/AuthorizationService/UserAccountService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/templates/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/templates/registration.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,14 +221,6 @@
         </option>
       </method>
     </configuration>
-    <configuration name="Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
-      <deployment type="dockerfile">
-        <settings>
-          <option name="sourceFilePath" value="Dockerfile" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
         <settings />
@@ -263,7 +251,6 @@
     </configuration>
     <list>
       <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
-      <item itemvalue="Docker.Dockerfile" />
       <item itemvalue="Docker.docker-compose.yaml: Compose Deployment" />
       <item itemvalue="JUnit.SessionTest.deleteLocationTest" />
       <item itemvalue="JUnit.OpenWeatherApiTest.testWeatherError429" />
@@ -273,7 +260,6 @@
       <list>
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
         <item itemvalue="JUnit.SessionTest.deleteLocationTest" />
-        <item itemvalue="Docker.Dockerfile" />
         <item itemvalue="Docker.docker-compose.yaml: Compose Deployment" />
         <item itemvalue="JUnit.OpenWeatherApiTest.testWeatherError429" />
       </list>
@@ -322,6 +308,17 @@
       <workItem from="1697742534240" duration="339000" />
       <workItem from="1699265512718" duration="14000" />
       <workItem from="1699265614836" duration="307000" />
+      <workItem from="1699643670783" duration="964000" />
+      <workItem from="1699647610623" duration="1547000" />
+      <workItem from="1699714760671" duration="801000" />
+      <workItem from="1699962267541" duration="1648000" />
+      <workItem from="1700493248403" duration="2601000" />
+      <workItem from="1700594805020" duration="85000" />
+      <workItem from="1700598317777" duration="2466000" />
+      <workItem from="1700602618503" duration="2618000" />
+      <workItem from="1700653968423" duration="178000" />
+      <workItem from="1700729969546" duration="1114000" />
+      <workItem from="1700752482786" duration="604000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />

@@ -5,7 +5,7 @@
          version="5.0">
     <filter>
         <filter-name>LoginFilter</filter-name>
-        <filter-class>pet.project_test.Controller.Servlets.Authorization.LoginFilter</filter-class>
+        <filter-class>pet.project_test.controller.Servlets.Authorization.LoginFilter</filter-class>
         <init-param>
             <param-name>excludedUrls</param-name>
             <!-- Comma separated list of excluded servlets  -->
