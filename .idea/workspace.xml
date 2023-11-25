@@ -9,42 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ba2399d-e8d8-4360-9b5d-acd977df8f12" name="Changes" comment="Переименовал пакеты">
-      <change afterPath="$PROJECT_DIR$/docker-compose-dev.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose-ide.yml" afterDir="false" />
+    <list default="true" id="1ba2399d-e8d8-4360-9b5d-acd977df8f12" name="Changes" comment="Fix: Вернул шаблоны логина и регистрации">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Exception/ExceptionAPI/ExceptionEmptyListFound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Exception/ExceptionAPI/ExceptionEmptyListFound.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Exception/ExceptionAPI/ExceptionLocationAlreadyExist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Exception/ExceptionAPI/ExceptionLocationAlreadyExist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Exception/ExceptionAPI/ExceptionOpenWeatherError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Exception/ExceptionAPI/ExceptionOpenWeatherError.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Exception/ExceptionAPI/ExceptionRequestLimitExceeded.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Exception/ExceptionAPI/ExceptionRequestLimitExceeded.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Exception/ExceptionAuthorization/ExceptionAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Exception/ExceptionAuthorization/ExceptionAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Exception/ExceptionAuthorization/ExceptionIncorrectPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Exception/ExceptionAuthorization/ExceptionIncorrectPassword.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Exception/ExceptionAuthorization/ExceptionSessionNotFound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Exception/ExceptionAuthorization/ExceptionSessionNotFound.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Exception/ExceptionAuthorization/ExceptionUserAlreadyExistsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Exception/ExceptionAuthorization/ExceptionUserAlreadyExistsException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Exception/ExceptionAuthorization/ExceptionUserNotFound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Exception/ExceptionAuthorization/ExceptionUserNotFound.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Exception/ExceptionAuthorization/ExceptionWIthMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Exception/ExceptionAuthorization/ExceptionWIthMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Service/AuthorizationService/SessionUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Service/AuthorizationService/SessionUserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Service/AuthorizationService/UserAccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Service/AuthorizationService/UserAccountService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Service/DeleteSessionService/SessionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Service/DeleteSessionService/SessionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Service/OpenWeatherService/OpenWeatherApiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Service/OpenWeatherService/OpenWeatherApiService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Service/OpenWeatherService/WeatherEntity/Clouds.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Service/OpenWeatherService/WeatherEntity/Clouds.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Service/OpenWeatherService/WeatherEntity/LocationSearchDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Service/OpenWeatherService/WeatherEntity/LocationSearchDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Service/OpenWeatherService/WeatherEntity/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Service/OpenWeatherService/WeatherEntity/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Service/OpenWeatherService/WeatherEntity/OpenWeatherLocationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Service/OpenWeatherService/WeatherEntity/OpenWeatherLocationDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Service/OpenWeatherService/WeatherEntity/Weather.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Service/OpenWeatherService/WeatherEntity/Weather.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Service/OpenWeatherService/WeatherEntity/Wind.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Service/OpenWeatherService/WeatherEntity/Wind.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Servlets/Authorization/DeleteUserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Servlets/Authorization/DeleteUserServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Servlets/Authorization/EditPasswordServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Servlets/Authorization/EditPasswordServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Servlets/Authorization/LoginFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Servlets/Authorization/LoginFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Servlets/Authorization/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Servlets/Authorization/LoginServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Servlets/Authorization/RegistrationServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Servlets/Authorization/RegistrationServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Servlets/BaseServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Servlets/BaseServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Servlets/HomeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Servlets/HomeServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Servlets/SearchCityServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Servlets/SearchCityServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/OpenWeatherApiTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/OpenWeatherApiTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/SessionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/SessionTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +116,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 10.1.13">
+  <component name="RunManager" selected="Docker.docker-compose-dev.yml: Compose Deployment">
     <configuration name="SessionTest.deleteLocationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pp5" />
       <option name="PACKAGE_NAME" value="" />
@@ -303,8 +270,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Docker.docker-compose-ide.yml: Compose Deployment" />
         <item itemvalue="Docker.docker-compose-dev.yml: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose-ide.yml: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
         <item itemvalue="JUnit.SessionTest.deleteLocationTest" />
         <item itemvalue="Docker.docker-compose.yaml: Compose Deployment" />
@@ -366,7 +333,7 @@
       <workItem from="1700729969546" duration="1114000" />
       <workItem from="1700752482786" duration="1863000" />
       <workItem from="1700787057355" duration="1363000" />
-      <workItem from="1700943712408" duration="1385000" />
+      <workItem from="1700943712408" duration="3665000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />
@@ -504,7 +471,23 @@
       <option name="project" value="LOCAL" />
       <updated>1700753332520</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Refactor: Перенес папки, перенес работу с локациями в сервис">
+      <option name="closed" value="true" />
+      <created>1700945175986</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1700945175986</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Fix: Вернул шаблоны логина и регистрации">
+      <option name="closed" value="true" />
+      <created>1700945321126</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1700945321126</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -538,7 +521,9 @@
     <MESSAGE value="Настроил доккер" />
     <MESSAGE value="Перенес сборку дто в общий метод" />
     <MESSAGE value="Переименовал пакеты" />
-    <option name="LAST_COMMIT_MESSAGE" value="Переименовал пакеты" />
+    <MESSAGE value="Refactor: Перенес папки, перенес работу с локациями в сервис" />
+    <MESSAGE value="Fix: Вернул шаблоны логина и регистрации" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix: Вернул шаблоны логина и регистрации" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
