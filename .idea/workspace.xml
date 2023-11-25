@@ -9,8 +9,42 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ba2399d-e8d8-4360-9b5d-acd977df8f12" name="Changes" comment="Перенес сборку дто в общий метод">
+    <list default="true" id="1ba2399d-e8d8-4360-9b5d-acd977df8f12" name="Changes" comment="Переименовал пакеты">
+      <change afterPath="$PROJECT_DIR$/docker-compose-dev.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose-ide.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Exception/ExceptionAPI/ExceptionEmptyListFound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Exception/ExceptionAPI/ExceptionEmptyListFound.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Exception/ExceptionAPI/ExceptionLocationAlreadyExist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Exception/ExceptionAPI/ExceptionLocationAlreadyExist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Exception/ExceptionAPI/ExceptionOpenWeatherError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Exception/ExceptionAPI/ExceptionOpenWeatherError.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Exception/ExceptionAPI/ExceptionRequestLimitExceeded.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Exception/ExceptionAPI/ExceptionRequestLimitExceeded.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Exception/ExceptionAuthorization/ExceptionAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Exception/ExceptionAuthorization/ExceptionAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Exception/ExceptionAuthorization/ExceptionIncorrectPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Exception/ExceptionAuthorization/ExceptionIncorrectPassword.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Exception/ExceptionAuthorization/ExceptionSessionNotFound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Exception/ExceptionAuthorization/ExceptionSessionNotFound.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Exception/ExceptionAuthorization/ExceptionUserAlreadyExistsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Exception/ExceptionAuthorization/ExceptionUserAlreadyExistsException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Exception/ExceptionAuthorization/ExceptionUserNotFound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Exception/ExceptionAuthorization/ExceptionUserNotFound.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Exception/ExceptionAuthorization/ExceptionWIthMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Exception/ExceptionAuthorization/ExceptionWIthMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Service/AuthorizationService/SessionUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Service/AuthorizationService/SessionUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Service/AuthorizationService/UserAccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Service/AuthorizationService/UserAccountService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Service/DeleteSessionService/SessionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Service/DeleteSessionService/SessionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Service/OpenWeatherService/OpenWeatherApiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Service/OpenWeatherService/OpenWeatherApiService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Service/OpenWeatherService/WeatherEntity/Clouds.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Service/OpenWeatherService/WeatherEntity/Clouds.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Service/OpenWeatherService/WeatherEntity/LocationSearchDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Service/OpenWeatherService/WeatherEntity/LocationSearchDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Service/OpenWeatherService/WeatherEntity/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Service/OpenWeatherService/WeatherEntity/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Service/OpenWeatherService/WeatherEntity/OpenWeatherLocationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Service/OpenWeatherService/WeatherEntity/OpenWeatherLocationDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Service/OpenWeatherService/WeatherEntity/Weather.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Service/OpenWeatherService/WeatherEntity/Weather.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Service/OpenWeatherService/WeatherEntity/Wind.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/Service/OpenWeatherService/WeatherEntity/Wind.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Servlets/Authorization/DeleteUserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Servlets/Authorization/DeleteUserServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Servlets/Authorization/EditPasswordServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Servlets/Authorization/EditPasswordServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Servlets/Authorization/LoginFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Servlets/Authorization/LoginFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Servlets/Authorization/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Servlets/Authorization/LoginServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Servlets/Authorization/RegistrationServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Servlets/Authorization/RegistrationServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Servlets/BaseServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Servlets/BaseServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Servlets/HomeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Servlets/HomeServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Servlets/SearchCityServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pet/project_test/controller/Servlets/SearchCityServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/OpenWeatherApiTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/OpenWeatherApiTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/SessionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/SessionTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,36 +106,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ART PRONKIN/Desktop/Farnenser&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.5827586&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/ART PRONKIN/Desktop/idea/1/WeatherService",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.5827586",
+    "settings.editor.selected.configurable": "project.propCompiler",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;cde082e0-d4af-46a7-b99f-301c0b002ce5&quot;,
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "cde082e0-d4af-46a7-b99f-301c0b002ce5",
+      "mysql"
     ],
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;yaml&quot;
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "yaml"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ART PRONKIN\Desktop\idea\1\WeatherService" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\ART PRONKIN\Desktop\weather_service-test\src\test\resources" />
       <recent name="C:\Users\ART PRONKIN\Desktop\weather_service-test\src" />
@@ -111,17 +149,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.docker-compose.yml: Compose Deployment">
-    <configuration name="OpenWeatherApiTest.testWeatherError429" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="pp5" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="OpenWeatherApiTest" />
-      <option name="METHOD_NAME" value="testWeatherError429" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Tomcat Server.Tomcat 10.1.13">
     <configuration name="SessionTest.deleteLocationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pp5" />
       <option name="PACKAGE_NAME" value="" />
@@ -233,6 +261,22 @@
       </deployment>
       <method v="2" />
     </configuration>
+    <configuration name="docker-compose-dev.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="docker-compose-dev.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose-ide.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="docker-compose-ide.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <configuration name="docker-compose.yaml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
@@ -250,18 +294,20 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Docker.docker-compose-dev.yml: Compose Deployment" />
+      <item itemvalue="Docker.docker-compose-ide.yml: Compose Deployment" />
       <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
       <item itemvalue="Docker.docker-compose.yaml: Compose Deployment" />
       <item itemvalue="JUnit.SessionTest.deleteLocationTest" />
-      <item itemvalue="JUnit.OpenWeatherApiTest.testWeatherError429" />
       <item itemvalue="Tomcat Server.Tomcat 10.1.13" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.docker-compose-ide.yml: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose-dev.yml: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
         <item itemvalue="JUnit.SessionTest.deleteLocationTest" />
         <item itemvalue="Docker.docker-compose.yaml: Compose Deployment" />
-        <item itemvalue="JUnit.OpenWeatherApiTest.testWeatherError429" />
       </list>
     </recent_temporary>
   </component>
@@ -318,7 +364,9 @@
       <workItem from="1700602618503" duration="2618000" />
       <workItem from="1700653968423" duration="178000" />
       <workItem from="1700729969546" duration="1114000" />
-      <workItem from="1700752482786" duration="604000" />
+      <workItem from="1700752482786" duration="1863000" />
+      <workItem from="1700787057355" duration="1363000" />
+      <workItem from="1700943712408" duration="1385000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />
@@ -448,7 +496,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697105756494</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Переименовал пакеты">
+      <option name="closed" value="true" />
+      <created>1700753332520</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1700753332520</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -481,18 +537,14 @@
     <MESSAGE value="Настроил доккер, добавил эксепшены для ответов апи,дописал тесты" />
     <MESSAGE value="Настроил доккер" />
     <MESSAGE value="Перенес сборку дто в общий метод" />
-    <option name="LAST_COMMIT_MESSAGE" value="Перенес сборку дто в общий метод" />
+    <MESSAGE value="Переименовал пакеты" />
+    <option name="LAST_COMMIT_MESSAGE" value="Переименовал пакеты" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/OpenWeatherApiTest.java</url>
-          <line>218</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/pet/project_test/Entity/Location/LocationDAO.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/pet/project_test/entity/location/LocationDAO.java</url>
           <line>14</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>

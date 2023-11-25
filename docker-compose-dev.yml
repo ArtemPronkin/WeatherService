@@ -2,7 +2,6 @@ version: '3'
 
 services:
   app:
-    image: temas8150/myapp
     build: ./
     container_name: java-app
     ports:

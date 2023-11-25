@@ -3,11 +3,11 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import pet.project_test.controller.Exception.ExceptionAuthorization.ExceptionIncorrectPassword;
-import pet.project_test.controller.Exception.ExceptionAuthorization.ExceptionUserAlreadyExistsException;
-import pet.project_test.controller.Exception.ExceptionAuthorization.ExceptionUserNotFound;
-import pet.project_test.controller.Service.AuthorizationService.SessionUserService;
-import pet.project_test.controller.Service.AuthorizationService.UserAccountService;
+import pet.project_test.Exception.ExceptionAuthorization.ExceptionIncorrectPassword;
+import pet.project_test.Exception.ExceptionAuthorization.ExceptionUserAlreadyExistsException;
+import pet.project_test.Exception.ExceptionAuthorization.ExceptionUserNotFound;
+import pet.project_test.Service.AuthorizationService.SessionUserService;
+import pet.project_test.Service.AuthorizationService.UserAccountService;
 import pet.project_test.entity.location.Location;
 import pet.project_test.entity.location.LocationDAO;
 import pet.project_test.entity.session.Session;
@@ -38,35 +38,35 @@ public class SessionTest {
     }
 
     @Test
-    public void uniqueUserThrowTest() throws ExceptionUserAlreadyExistsException {
+    void uniqueUserThrowTest() throws ExceptionUserAlreadyExistsException {
         userAccountService.registrationNewUser("test222@test", "test@test");
         Assertions.assertThrows(ExceptionUserAlreadyExistsException.class,
                 () -> userAccountService.registrationNewUser("test222@test", "test@test"));
     }
 
     @Test
-    public void InCorrectedPasswordThrowTest() throws ExceptionUserAlreadyExistsException {
+    void InCorrectedPasswordThrowTest() throws ExceptionUserAlreadyExistsException {
         userAccountService.registrationNewUser("test333@test", "test@test");
         Assertions.assertThrows(ExceptionIncorrectPassword.class,
                 () -> userAccountService.login("test333@test", "NotPassword"));
     }
 
     @Test
-    public void isActualSessionWithEmptyCookieTest() {
+    void isActualSessionWithEmptyCookieTest() {
         var cookies = new Cookie[0];
         when(httpServletRequest.getCookies()).thenReturn(cookies);
         Assertions.assertEquals(false, sessionUserService.itsActualSession(httpServletRequest));
     }
 
     @Test
-    public void isActualSessionWithRandomUUIDCookieTest() {
+    void isActualSessionWithRandomUUIDCookieTest() {
         var cookies = new Cookie[]{new Cookie("sessionId", UUID.randomUUID().toString())};
         when(httpServletRequest.getCookies()).thenReturn(cookies);
         Assertions.assertEquals(false, sessionUserService.itsActualSession(httpServletRequest));
     }
 
     @Test
-    public void isActualSessionWithExpiredSessionCookieTest() {
+    void isActualSessionWithExpiredSessionCookieTest() {
         UUID uuid = UUID.randomUUID();
         sessionDAO.save(new Session(uuid, user1, LocalDateTime.now().minusDays(1)));
         var cookies = new Cookie[]{new Cookie("sessionId", uuid.toString())};
@@ -75,7 +75,7 @@ public class SessionTest {
     }
 
     @Test
-    public void isActualSessionWithActualSessionCookieTest() {
+    void isActualSessionWithActualSessionCookieTest() {
         var uuid = sessionUserService.createNewSession(user1);
         var cookies = new Cookie[]{new Cookie("sessionId", uuid.toString())};
         when(httpServletRequest.getCookies()).thenReturn(cookies);
@@ -83,7 +83,7 @@ public class SessionTest {
     }
 
     @Test
-    public void deleteExpiredSessionTest() {
+    void deleteExpiredSessionTest() {
         UUID uuid = UUID.randomUUID();
         sessionDAO.save(new Session(uuid, user1, LocalDateTime.now()));
         sessionDAO.deleteExpiredSessions(LocalDateTime.now().plusHours(1));
@@ -91,7 +91,7 @@ public class SessionTest {
     }
 
     @Test
-    public void deleteUserTest() throws ExceptionUserAlreadyExistsException, ExceptionIncorrectPassword, ExceptionUserNotFound {
+    void Must_EmptyLocationList_WhenUserDeleteAndRegistrationNewUserWithSameLogin() throws ExceptionUserAlreadyExistsException, ExceptionIncorrectPassword, ExceptionUserNotFound {
         var login = "homes";
         var password = login;
         var user4 = userAccountService.registrationNewUser(login, password);
@@ -105,7 +105,7 @@ public class SessionTest {
     }
 
     @Test
-    public void deleteLocationTest() throws ExceptionUserAlreadyExistsException, ExceptionIncorrectPassword, ExceptionUserNotFound {
+    void Must_EmptyLocationList_WhenUserDeleteLocation() throws ExceptionUserAlreadyExistsException, ExceptionIncorrectPassword, ExceptionUserNotFound {
         var login = "user";
         var password = login;
         var user6 = userAccountService.registrationNewUser(login, password);

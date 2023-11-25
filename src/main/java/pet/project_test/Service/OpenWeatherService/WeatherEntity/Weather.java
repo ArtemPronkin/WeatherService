@@ -1,10 +1,11 @@
-package pet.project_test.controller.Service.OpenWeatherService.WeatherEntity;
+package pet.project_test.Service.OpenWeatherService.WeatherEntity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Wind {
-    Double speed;
+public class Weather {
+    String icon;
+    String main;
 }

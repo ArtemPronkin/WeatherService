@@ -9,16 +9,15 @@ import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.thymeleaf.ITemplateEngine;
 import org.thymeleaf.context.WebContext;
-import pet.project_test.controller.Exception.ExceptionAPI.ExceptionEmptyListFound;
-import pet.project_test.controller.Exception.ExceptionAPI.ExceptionLocationAlreadyExist;
-import pet.project_test.controller.Exception.ExceptionAPI.ExceptionOpenWeatherError;
-import pet.project_test.controller.Exception.ExceptionAPI.ExceptionRequestLimitExceeded;
-import pet.project_test.controller.Exception.ExceptionAuthorization.*;
-import pet.project_test.controller.Service.AuthorizationService.SessionUserService;
-import pet.project_test.controller.Service.AuthorizationService.UserAccountService;
-import pet.project_test.controller.Service.OpenWeatherService.OpenWeatherApiService;
+import pet.project_test.Exception.ExceptionAPI.ExceptionEmptyListFound;
+import pet.project_test.Exception.ExceptionAPI.ExceptionLocationAlreadyExist;
+import pet.project_test.Exception.ExceptionAPI.ExceptionOpenWeatherError;
+import pet.project_test.Exception.ExceptionAPI.ExceptionRequestLimitExceeded;
+import pet.project_test.Exception.ExceptionAuthorization.*;
+import pet.project_test.Service.AuthorizationService.SessionUserService;
+import pet.project_test.Service.AuthorizationService.UserAccountService;
+import pet.project_test.Service.OpenWeatherService.OpenWeatherApiService;
 import pet.project_test.controller.Servlets.ListenerTemplateEngine.TemplateEngineUtil;
-import pet.project_test.entity.location.LocationDAO;
 import pet.project_test.entity.user.User;
 
 import java.io.IOException;
@@ -32,7 +31,6 @@ public abstract class BaseServlet extends HttpServlet {
     protected OpenWeatherApiService openWeatherApiService = new OpenWeatherApiService();
     protected UserAccountService userAccountService = new UserAccountService();
     protected SessionUserService sessionUserService = new SessionUserService();
-    protected LocationDAO locationDAO = new LocationDAO();
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -62,14 +60,14 @@ public abstract class BaseServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        get(request, response, userAccountService.getUser(request));
+        get(request, response, sessionUserService.getUser(request));
     }
 
     @SneakyThrows
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        post(request, response, userAccountService.getUser(request));
+        post(request, response, sessionUserService.getUser(request));
     }
 
     protected void post(HttpServletRequest request, HttpServletResponse response, User user) throws ServletException, IOException {

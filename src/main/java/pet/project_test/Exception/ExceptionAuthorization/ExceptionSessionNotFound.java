@@ -1,4 +1,4 @@
-package pet.project_test.controller.Exception.ExceptionAuthorization;
+package pet.project_test.Exception.ExceptionAuthorization;
 
 import jakarta.servlet.ServletException;
 

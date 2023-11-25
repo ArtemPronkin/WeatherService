@@ -5,7 +5,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import pet.project_test.controller.Service.OpenWeatherService.WeatherEntity.OpenWeatherLocationDTO;
+import pet.project_test.Service.OpenWeatherService.WeatherEntity.OpenWeatherLocationDTO;
 import pet.project_test.entity.user.User;
 
 import java.io.IOException;
@@ -28,7 +28,7 @@ public class HomeServlet extends BaseServlet {
     protected void post(HttpServletRequest request, HttpServletResponse response, User user) throws ServletException, IOException {
         String lon = request.getParameter("lon");
         String lat = request.getParameter("lat");
-        locationDAO.deleteByUser(user, new BigDecimal(lat), new BigDecimal(lon));
+        userAccountService.deleteUserLocation(user, new BigDecimal(lat), new BigDecimal(lon));
         response.sendRedirect(request.getContextPath() + request.getServletPath());
     }
 }

@@ -1,4 +1,4 @@
-package pet.project_test.controller.Service.DeleteSessionService;
+package pet.project_test.Service.DeleteSessionService;
 
 import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;

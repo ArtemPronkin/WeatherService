@@ -1,29 +1,23 @@
-package pet.project_test.controller.Service.AuthorizationService;
+package pet.project_test.Service.AuthorizationService;
 
 import com.password4j.Password;
 import jakarta.persistence.PersistenceException;
-import jakarta.servlet.http.HttpServletRequest;
-import pet.project_test.controller.Exception.ExceptionAuthorization.ExceptionAccess;
-import pet.project_test.controller.Exception.ExceptionAuthorization.ExceptionIncorrectPassword;
-import pet.project_test.controller.Exception.ExceptionAuthorization.ExceptionUserAlreadyExistsException;
-import pet.project_test.controller.Exception.ExceptionAuthorization.ExceptionUserNotFound;
-import pet.project_test.entity.session.Session;
-import pet.project_test.entity.session.SessionDAO;
+import pet.project_test.Exception.ExceptionAuthorization.ExceptionIncorrectPassword;
+import pet.project_test.Exception.ExceptionAuthorization.ExceptionUserAlreadyExistsException;
+import pet.project_test.Exception.ExceptionAuthorization.ExceptionUserNotFound;
+import pet.project_test.entity.location.Location;
+import pet.project_test.entity.location.LocationDAO;
 import pet.project_test.entity.user.User;
 import pet.project_test.entity.user.UserDAO;
 
-import java.util.Optional;
+import java.math.BigDecimal;
 
 public class UserAccountService {
     UserDAO userDAO = new UserDAO();
-    SessionDAO sessionDAO = new SessionDAO();
-    SessionUserService sessionUserService = new SessionUserService();
+    LocationDAO locationDAO = new LocationDAO();
 
-
-    public User getUser(HttpServletRequest request) throws ExceptionAccess {
-        var uuid = sessionUserService.getSessionUUIDFromRequest(request).orElseThrow(() -> new ExceptionAccess("Session not found"));
-        Optional<Session> optionalSession = sessionDAO.getById(uuid);
-        return optionalSession.orElseThrow(() -> new ExceptionAccess("User not found")).getUser();
+    public void saveLocation(Location location) {
+        locationDAO.save(location);
     }
 
     public void deleteUser(User user) {
@@ -57,5 +51,9 @@ public class UserAccountService {
             throw new ExceptionIncorrectPassword("Incorrect     password");
         }
         return user.get();
+    }
+
+    public void deleteUserLocation(User user, BigDecimal lat, BigDecimal lon) {
+        locationDAO.deleteByUser(user, lat, lon);
     }
 }

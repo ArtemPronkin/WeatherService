@@ -1,4 +1,4 @@
-package pet.project_test.controller.Exception.ExceptionAPI;
+package pet.project_test.Exception.ExceptionAPI;
 
 import jakarta.servlet.ServletException;
 

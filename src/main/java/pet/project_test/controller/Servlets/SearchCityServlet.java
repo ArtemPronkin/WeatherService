@@ -4,9 +4,9 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.SneakyThrows;
-import pet.project_test.controller.Exception.ExceptionAPI.ExceptionEmptyListFound;
-import pet.project_test.controller.Exception.ExceptionAPI.ExceptionLocationAlreadyExist;
-import pet.project_test.controller.Service.OpenWeatherService.WeatherEntity.LocationSearchDTO;
+import pet.project_test.Exception.ExceptionAPI.ExceptionEmptyListFound;
+import pet.project_test.Exception.ExceptionAPI.ExceptionLocationAlreadyExist;
+import pet.project_test.Service.OpenWeatherService.WeatherEntity.LocationSearchDTO;
 import pet.project_test.entity.location.Location;
 import pet.project_test.entity.user.User;
 
@@ -60,7 +60,7 @@ public class SearchCityServlet extends BaseServlet {
         }
 
         Location location = new Location(user, name, new BigDecimal(latitude), new BigDecimal(longitude));
-        locationDAO.save(location);
+        userAccountService.saveLocation(location);
         response.sendRedirect(request.getContextPath() + "/home");
 
     }

@@ -1,14 +1,14 @@
-package pet.project_test.controller.Service.OpenWeatherService;
+package pet.project_test.Service.OpenWeatherService;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import pet.project_test.controller.Exception.ExceptionAPI.ExceptionOpenWeatherError;
-import pet.project_test.controller.Exception.ExceptionAPI.ExceptionRequestLimitExceeded;
-import pet.project_test.controller.Service.OpenWeatherService.WeatherEntity.LocationSearchDTO;
-import pet.project_test.controller.Service.OpenWeatherService.WeatherEntity.OpenWeatherLocationDTO;
+import pet.project_test.Exception.ExceptionAPI.ExceptionOpenWeatherError;
+import pet.project_test.Exception.ExceptionAPI.ExceptionRequestLimitExceeded;
+import pet.project_test.Service.OpenWeatherService.WeatherEntity.LocationSearchDTO;
+import pet.project_test.Service.OpenWeatherService.WeatherEntity.OpenWeatherLocationDTO;
 import pet.project_test.entity.location.Location;
 
 import java.io.IOException;

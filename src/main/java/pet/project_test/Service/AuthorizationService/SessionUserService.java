@@ -1,11 +1,11 @@
-package pet.project_test.controller.Service.AuthorizationService;
+package pet.project_test.Service.AuthorizationService;
 
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
-import pet.project_test.controller.Exception.ExceptionAuthorization.ExceptionAccess;
-import pet.project_test.controller.Exception.ExceptionAuthorization.ExceptionWIthMessage;
+import pet.project_test.Exception.ExceptionAuthorization.ExceptionAccess;
+import pet.project_test.Exception.ExceptionAuthorization.ExceptionWIthMessage;
 import pet.project_test.entity.session.Session;
 import pet.project_test.entity.session.SessionDAO;
 import pet.project_test.entity.user.User;
@@ -75,5 +75,11 @@ public class SessionUserService {
         Cookie emptyCookie = new Cookie("sessionId", null);
         emptyCookie.setMaxAge(0);
         response.addCookie(emptyCookie);
+    }
+
+    public User getUser(HttpServletRequest request) throws ExceptionAccess {
+        var uuid = getSessionUUIDFromRequest(request).orElseThrow(() -> new ExceptionAccess("Session not found"));
+        Optional<Session> optionalSession = sessionDAO.getById(uuid);
+        return optionalSession.orElseThrow(() -> new ExceptionAccess("User not found")).getUser();
     }
 }

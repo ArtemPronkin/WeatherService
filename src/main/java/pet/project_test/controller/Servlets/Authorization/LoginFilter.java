@@ -4,7 +4,7 @@ import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
-import pet.project_test.controller.Service.AuthorizationService.SessionUserService;
+import pet.project_test.Service.AuthorizationService.SessionUserService;
 import pet.project_test.entity.session.SessionDAO;
 
 import java.io.IOException;
