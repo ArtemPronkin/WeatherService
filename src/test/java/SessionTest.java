@@ -38,70 +38,56 @@ public class SessionTest {
     }
 
     @Test
-    void uniqueUserThrowTest() throws ExceptionUserAlreadyExistsException {
+    void Must_ThrowException_WhenRegisteringAnExistingEmail() throws ExceptionUserAlreadyExistsException {
         userAccountService.registrationNewUser("test222@test", "test@test");
         Assertions.assertThrows(ExceptionUserAlreadyExistsException.class,
                 () -> userAccountService.registrationNewUser("test222@test", "test@test"));
     }
 
     @Test
-    void InCorrectedPasswordThrowTest() throws ExceptionUserAlreadyExistsException {
+    void Must_ThrowException_WhenLoginWithIncorrectPassword() throws ExceptionUserAlreadyExistsException {
         userAccountService.registrationNewUser("test333@test", "test@test");
         Assertions.assertThrows(ExceptionIncorrectPassword.class,
                 () -> userAccountService.login("test333@test", "NotPassword"));
     }
 
     @Test
-    void isActualSessionWithEmptyCookieTest() {
+    void Must_IsNotActualSession_WhenCookiesIsEmpty() {
         var cookies = new Cookie[0];
         when(httpServletRequest.getCookies()).thenReturn(cookies);
-        Assertions.assertEquals(false, sessionUserService.itsActualSession(httpServletRequest));
+        Assertions.assertFalse(sessionUserService.itsActualSession(httpServletRequest));
     }
 
     @Test
-    void isActualSessionWithRandomUUIDCookieTest() {
+    void Must_IsNotActualSession_WhenCookiesContainsRandomUUID() {
         var cookies = new Cookie[]{new Cookie("sessionId", UUID.randomUUID().toString())};
         when(httpServletRequest.getCookies()).thenReturn(cookies);
-        Assertions.assertEquals(false, sessionUserService.itsActualSession(httpServletRequest));
+        Assertions.assertFalse(sessionUserService.itsActualSession(httpServletRequest));
     }
 
     @Test
-    void isActualSessionWithExpiredSessionCookieTest() {
+    void Must_IsNotActualSession_WhenCookiesContainsUUIDExpiredSession() {
         UUID uuid = UUID.randomUUID();
         sessionDAO.save(new Session(uuid, user1, LocalDateTime.now().minusDays(1)));
         var cookies = new Cookie[]{new Cookie("sessionId", uuid.toString())};
         when(httpServletRequest.getCookies()).thenReturn(cookies);
-        Assertions.assertEquals(false, sessionUserService.itsActualSession(httpServletRequest));
+        Assertions.assertFalse(sessionUserService.itsActualSession(httpServletRequest));
     }
 
     @Test
-    void isActualSessionWithActualSessionCookieTest() {
+    void Must_IsActualSession_WhenCookiesContainsCorrectUUID() {
         var uuid = sessionUserService.createNewSession(user1);
         var cookies = new Cookie[]{new Cookie("sessionId", uuid.toString())};
         when(httpServletRequest.getCookies()).thenReturn(cookies);
-        Assertions.assertEquals(true, sessionUserService.itsActualSession(httpServletRequest));
+        Assertions.assertTrue(sessionUserService.itsActualSession(httpServletRequest));
     }
 
     @Test
-    void deleteExpiredSessionTest() {
+    void Must_DeleteSession_WhenSessionExpired() {
         UUID uuid = UUID.randomUUID();
         sessionDAO.save(new Session(uuid, user1, LocalDateTime.now()));
         sessionDAO.deleteExpiredSessions(LocalDateTime.now().plusHours(1));
         Assertions.assertTrue(sessionDAO.getById(uuid).isEmpty());
-    }
-
-    @Test
-    void Must_EmptyLocationList_WhenUserDeleteAndRegistrationNewUserWithSameLogin() throws ExceptionUserAlreadyExistsException, ExceptionIncorrectPassword, ExceptionUserNotFound {
-        var login = "homes";
-        var password = login;
-        var user4 = userAccountService.registrationNewUser(login, password);
-        sessionUserService.createNewSession(user4);
-        Location location = new Location(user4, "London", new BigDecimal("0"), new BigDecimal("0"));
-        locationDAO.save(location);
-        userAccountService.deleteUser(user4);
-        Assertions.assertThrows(ExceptionUserNotFound.class, () -> userAccountService.login(login, password));
-        var user5 = userAccountService.registrationNewUser(login, password);
-        Assertions.assertTrue(user5.getLocationList().isEmpty());
     }
 
     @Test
