@@ -27,6 +27,8 @@ public class LoginFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+        servletRequest.setCharacterEncoding("UTF-8");
+        servletResponse.setCharacterEncoding("UTF-8");
         var resp = (HttpServletResponse) servletResponse;
         var req = (HttpServletRequest) servletRequest;
         String path = ((HttpServletRequest) servletRequest).getServletPath();
@@ -50,39 +52,5 @@ public class LoginFilter implements Filter {
         Filter.super.destroy();
     }
 
-
-//    public static Optional<UUID> getSessionUUIDFromRequest(HttpServletRequest request) {
-//        Cookie[] cookies = request.getCookies();
-//        String cookieName = "sessionId";
-//        Optional<UUID> uuid = Optional.empty();
-//        if (cookies != null) {
-//            for (Cookie c : cookies) {
-//                if (cookieName.equals(c.getName())) {
-//                    uuid = Optional.of(UUID.fromString(c.getValue()));
-//                    break;
-//                }
-//            }
-//        }
-//        return uuid;
-//    }
-//
-//    public boolean itsActualSession(HttpServletRequest request) {
-//        var optionalIdSessionFromCookie = getSessionUUIDFromRequest(request);
-//        if (optionalIdSessionFromCookie.isEmpty()) {
-//            return false;
-//        }
-//
-//        Optional<Session> optionalSession = sessionDAO.getById(optionalIdSessionFromCookie.get());
-//        if (optionalSession.isEmpty()) {
-//            return false;
-//        }
-//
-//        var expiresAt = optionalSession.get().getExpiresAt();
-//        var currentTime = LocalDateTime.now();
-//        if (currentTime.isAfter(expiresAt)) {
-//            return false;
-//        }
-//        return true;
-//    }
 
 }
